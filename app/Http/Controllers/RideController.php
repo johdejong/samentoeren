@@ -28,7 +28,7 @@ class RideController extends Controller
         return view('ride.show', compact('ride'));
     }
 
-    public function join(Request $request, Ride $ride)
+    public function join(Request $request, Ride $ride, Location $location)
     {
         $ride->users()->attach(auth()->user());
 
