@@ -19,7 +19,6 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col"></i></th>
                             <th scope="col">Naam</th>
                             <th scope="col" class="hideOnMobile">Omschrijving</th>
                             <th scope="col">Afstandscategorie</th>
@@ -28,9 +27,8 @@
                     </thead>
                     <tbody>
                         @foreach ($routes as $route)
-                            <tr style="transform: rotate(0);">
-                                <td scope="row"><a href="{{ action('App\Http\Controllers\RouteController@show', $route->id) }}" class="stretched-link"></td>         
-                                <td>{{ $route->name }}</td>
+                            <tr>     
+                                <td><a href="{{ action('App\Http\Controllers\RouteController@show', $route->id) }}">{{ $route->name }}</a></td>
                                 <td class="hideOnMobile">{{ $route->description }}</td>
                                 <td>{{ $route->distancecategory->distancecategory }}</td>
                                 <td class="hideOnMobile text-end">{{ $route->size }} kb</td>
