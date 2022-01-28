@@ -36,7 +36,7 @@
                                 @else
                                     <td></td>
                                 @endif                                
-                                <td>{{ $ride->name }}</a></td>
+                                <td><a href="{{ action('App\Http\Controllers\RideController@show', $ride->id) }}">{{ $ride->name }}</a></td>
                                 <td>{{ \Carbon\Carbon::parse($ride->start_date)->formatLocalized('%A %e %B %Y') }}</td>
                                 <td class="text-end">{{ $ride->distance }} km</td>
                                 <td class="hideOnMobile">{{ $ride->status->status }}</td>
