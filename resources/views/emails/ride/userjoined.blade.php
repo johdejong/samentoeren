@@ -17,8 +17,8 @@ Afstand: **{{ $ride->distance }}** km
 {{ $ride->start_location->address }}<br>
 {{ $ride->start_location->postal_code }} {{ $ride->start_location->residence }}
 
-@component('mail::button', ['url' => 'https://toeren.johanenjolanda.nl'])
-bezoek Samen Toeren
+@component('mail::button', ['url' => 'https://samentoeren.johanenjolanda.nl'])
+bezoek samen toeren
 @endcomponent
 
 Met vriendelijke motorgroet,<br>
