@@ -21,7 +21,7 @@ class UserJoined extends Mailable
      */
     public function __construct(Ride $ride)
     {
-        $this->ride = $ride;        
+        $this->ride = $ride; 
     }
 
     /**
@@ -29,7 +29,7 @@ class UserJoined extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build($ride)
     {
         $ride = Ride::with(['start_location'])->where('id', $ride->id)->get(); 
        

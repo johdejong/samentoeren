@@ -46,7 +46,7 @@ class RideController extends Controller
 
         return redirect()->back()
             ->with('success', 'Je bent aangemeld als deelnemer. Dit bericht wordt per email aan je bevestigd.');
-        }
+    }
 
     public function unjoin(Request $request, Ride $ride)
     {
