@@ -31,9 +31,9 @@
                 <div>
                     @if ( $ride->status->id === 1 )
                         @if (!$ride->users->contains(Auth::user()->id))
-                            <span class="badge bg-warning text-dark mr-2">Je bent nog niet aangemeld</span><a href="{{ action('App\Http\Controllers\RideController@join', $ride->id) }}" class="btn btn-outline-primary">Aanmelden</a>
+                            <span class="badge bg-warning text-dark mr-2 mb-2">Je bent nog niet aangemeld</span><a href="{{ action('App\Http\Controllers\RideController@join', $ride->id) }}" class="btn btn-outline-primary">Aanmelden</a>
                         @else
-                            <span class="badge bg-success mr-2">Je bent aangemeld</span><a href="{{ action('App\Http\Controllers\RideController@unjoin', $ride->id) }}" class="btn btn-outline-primary">Afmelden</a>
+                            <span class="badge bg-success mr-2 mb-2">Je bent aangemeld</span><a href="{{ action('App\Http\Controllers\RideController@unjoin', $ride->id) }}" class="btn btn-outline-primary">Afmelden</a>
                         @endif
                     @else
                         <a href="#" class="btn btn-outline-secondary disabled">Inschrijving gesloten</a>
