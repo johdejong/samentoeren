@@ -16,10 +16,9 @@
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 border-b border-gray-200">
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col"></i></th>
                             <th scope="col">Naam</th>
                             <th scope="col">Adres</th>
                             <th scope="col" class="hideOnMobile">Postcode</th>
@@ -29,9 +28,8 @@
                     </thead>
                     <tbody>
                         @foreach ($locations as $location)
-                            <tr style="transform: rotate(0);">
-                                <td scope="row"><a href="{{ action('App\Http\Controllers\LocationController@show', $location->id) }}" class="stretched-link"></td>         
-                                <td>{{ $location->name }}</td>
+                            <tr>   
+                                <td><a href="{{ action('App\Http\Controllers\LocationController@show', $location->id) }}">{{ $location->name }}</a></td>
                                 <td>{{ $location->address }}</td>
                                 <td class="hideOnMobile">{{ $location->postal_code }}</td>
                                 <td>{{ $location->residence }}</td>
