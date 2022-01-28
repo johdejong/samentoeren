@@ -19,7 +19,6 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col"><i class="las la-check-circle"></i></th>
                             <th scope="col"></th>
                             <th scope="col">Naam</th>
                             <th scope="col">Datum</th>
@@ -29,8 +28,7 @@
                     </thead>
                     <tbody>
                         @foreach ($rides as $ride)
-                            <tr style="transform: rotate(0);">
-                                <td scope="row"><a href="{{ action('App\Http\Controllers\RideController@show', $ride->id) }}" class="stretched-link"><i class="las la-check-circle"></i></a></td>
+                            <tr>
                                 @if ($ride->users->contains(Auth::user()->id))
                                     <td><i class="las la-thumbtack"></i></td>
                                 @else
