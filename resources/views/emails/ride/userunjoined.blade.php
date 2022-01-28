@@ -7,10 +7,6 @@ Tot een volgende keer.
 Naam: **{{ $ride->name }}**<br>
 Datum: **{{ \Carbon\Carbon::parse($ride->start_date)->formatLocalized('%A %e %B %Y') }}**
 
-@component('mail::button', ['url' => 'https://samentoeren.johanenjolanda.nl'])
-bezoek samen toeren
-@endcomponent
-
 Met vriendelijke motorgroet,<br>
 {{ config('app.name') }}
 @endcomponent
