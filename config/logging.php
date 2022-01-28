@@ -60,13 +60,6 @@ return [
             'level' => env('LOG_LEVEL', 'info'),
         ],
 
-        'db' => [
-            'driver' => 'custom',
-            'handler' => App\Logging\MySQLLoggingHandler::class,
-            'via' => App\Logging\MySQLCustomLogger::class,
-            'level' => 'info',
-        ],
-
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),
