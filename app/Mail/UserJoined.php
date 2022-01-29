@@ -31,6 +31,7 @@ class UserJoined extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.ride.userjoined');
+        return $this->markdown('emails.ride.userjoined')
+            ->subject('Leuk dat je meegaat');
     }
 }
