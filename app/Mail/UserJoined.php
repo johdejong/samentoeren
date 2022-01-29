@@ -14,15 +14,23 @@ class UserJoined extends Mailable
 
     public $ride;
 
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
     public function __construct(Ride $ride)
     {
-        $this->ride = $ride; 
+        $this->ride = $ride;
     }
 
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
     public function build()
     {
-        $ride = Ride::with(['start_location'])->where('id', $ride->id)->get();   
-        
-        return $this->markdown('emails.ride.userjoined', $ride);
+        return $this->markdown('emails.ride.userjoined');
     }
 }

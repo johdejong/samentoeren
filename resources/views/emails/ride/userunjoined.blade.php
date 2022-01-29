@@ -8,5 +8,5 @@ Naam: **{{ $ride->name }}**<br>
 Datum: **{{ \Carbon\Carbon::parse($ride->start_date)->formatLocalized('%A %e %B %Y') }}**
 
 Met vriendelijke motorgroet,<br>
-{{ config('app.name') }}
+[{{ config('app.name') }}](https://samentoeren.johanenjolanda.nl)
 @endcomponent
