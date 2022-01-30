@@ -51,6 +51,8 @@ class RideController extends Controller
 
     public function unjoin(Request $request, Ride $ride)
     {
+        //$user = User::find(auth()->user()->id);
+        
         $ride->users()->detach(auth()->user());
 
         Mail::to(auth()->user())
