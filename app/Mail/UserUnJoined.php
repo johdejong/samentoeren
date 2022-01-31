@@ -32,6 +32,6 @@ class UserUnJoined extends Mailable
     public function build()
     {
         return $this->markdown('emails.ride.userunjoined')
-            ->subject('Jammer dat je niet mee kunt');;
+            ->subject('Jammer dat je niet mee kunt');
     }
 }

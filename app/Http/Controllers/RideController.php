@@ -31,7 +31,7 @@ class RideController extends Controller
     public function join(Request $request, Ride $ride)
     {
         $ride->users()->attach(auth()->user());
-
+      
         // E-mail bevestiging aan gebruiker
         Mail::to(auth()->user())
             ->queue(new UserJoined($ride));
@@ -51,10 +51,9 @@ class RideController extends Controller
 
     public function unjoin(Request $request, Ride $ride)
     {
-        //$user = User::find(auth()->user()->id);
-        
         $ride->users()->detach(auth()->user());
 
+        // E-mail bevestiging aan gebruiker
         Mail::to(auth()->user())
             ->queue(new UserUnJoined($ride));
 
