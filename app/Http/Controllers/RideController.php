@@ -28,14 +28,19 @@ class RideController extends Controller
         return view('ride.show', compact('ride'));
     }
 
-    public function join(Request $request, Ride $ride)
+    public function join(Request $request, Ride $ride, User $user)
     {
+        // Selecteer aangemelde gebruiker
+        $user = User::find(auth()->user()->id);
+
+        // Voeg gebruiker toe aan de deelnemerslijst
         $ride->users()->attach(auth()->user());
       
-        // E-mail bevestiging aan gebruiker
+        // Bevestig deelname aan de gebruiker
         Mail::to(auth()->user())
-            ->queue(new UserJoined($ride));
+            ->queue(new UserJoined($ride, $user));
 
+        // Neem een actie op in het databaselogboek
         $name = auth()->user()->name;
         $message = auth()->user()->name . " heeft zich aangemeld voor  $ride->name" . ".";
         $data = array(
@@ -49,14 +54,19 @@ class RideController extends Controller
             ->with('success', 'Je bent aangemeld als deelnemer. Dit bericht wordt per email aan je bevestigd.');
     }
 
-    public function unjoin(Request $request, Ride $ride)
+    public function unjoin(Request $request, Ride $ride, User $user)
     {
+        // Selecteer aangemelde gebruiker
+        $user = User::find(auth()->user()->id);
+        
+        // Verwijder gebruiker uit de deelnemerslijst
         $ride->users()->detach(auth()->user());
 
-        // E-mail bevestiging aan gebruiker
+        // Bevestig intrekken deelname aan de gebruiker
         Mail::to(auth()->user())
-            ->queue(new UserUnJoined($ride));
+           ->queue(new UserUnJoined($ride, $user));
 
+        // Neem een actie op in het databaselogboek
         $name = auth()->user()->name;
         $message = auth()->user()->name . " heeft zich afgemeld voor  $ride->name" . ".";
         $data = array(

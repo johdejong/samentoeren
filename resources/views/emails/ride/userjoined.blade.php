@@ -1,6 +1,8 @@
 @component('mail::message')
 # Bevestiging deelname
 
+Beste {{ $user->name }},
+
 Leuk dat jij je hebt aangemeld. Dit is de bevestiging van je deelname.<br>
 
 Hieronder vind je de belangrijkste gegevens.

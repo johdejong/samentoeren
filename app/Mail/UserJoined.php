@@ -7,21 +7,23 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Ride;
+use App\Models\User;
 
 class UserJoined extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $ride;
+    public $ride, $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Ride $ride)
+    public function __construct(Ride $ride, User $user)
     {
         $this->ride = $ride;
+        $this->user = $user;
     }
 
     /**

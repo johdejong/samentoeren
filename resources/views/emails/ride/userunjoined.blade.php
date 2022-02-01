@@ -1,6 +1,8 @@
 @component('mail::message')
 # Bevestiging intrekking deelname
 
+Beste {{$user->name}},
+
 Met dit bericht bevestigen we je intrekking van deelname. Jammer dat je niet meegaat.<br>
 Tot een volgende keer.
 
