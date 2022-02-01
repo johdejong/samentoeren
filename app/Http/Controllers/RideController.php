@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserJoined;
 use App\Mail\UserUnJoined;
+use App\Mail\AddedAttendee;
+use App\Mail\RemovedAttendee;
 use DB;
 
 class RideController extends Controller
@@ -36,9 +38,11 @@ class RideController extends Controller
         // Voeg gebruiker toe aan de deelnemerslijst
         $ride->users()->attach(auth()->user());
       
-        // Bevestig deelname aan de gebruiker
+        // Bevestiging voor gebruiker en beheerder
         Mail::to(auth()->user())
             ->queue(new UserJoined($ride, $user));
+        Mail::to('johan@johanenjolanda.nl')
+            ->queue(new AddedAttendee($ride, $user));
 
         // Neem een actie op in het databaselogboek
         $name = auth()->user()->name;
@@ -62,9 +66,11 @@ class RideController extends Controller
         // Verwijder gebruiker uit de deelnemerslijst
         $ride->users()->detach(auth()->user());
 
-        // Bevestig intrekken deelname aan de gebruiker
+        // Bevestiging voor gebruiker en beheerder
         Mail::to(auth()->user())
            ->queue(new UserUnJoined($ride, $user));
+        Mail::to('johan@johanenjolanda.nl')
+            ->queue(new RemovedAttendee($ride, $user));
 
         // Neem een actie op in het databaselogboek
         $name = auth()->user()->name;
