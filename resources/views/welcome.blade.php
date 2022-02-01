@@ -11,6 +11,14 @@
         <title>samen toeren</title>
     </head>
 
+    <style>
+        @media only screen and (max-width: 780px) {
+		.hideOnMobile{
+			display: none;
+		    }
+	    }
+    </style>
+
     <main>
         <div class="container py-4">
             <header class="pb-3 mb-4 border-bottom">
@@ -43,23 +51,23 @@
                     </div>
                 </div>
 
-                <div class="col-md-2 mb-4">
+                <div class="col-md-2 mb-4 hideOnMobile">
                     <div class="h-100 p-4 rounded-3 text-center" style="border-style: solid; border-width: 1px; border-color: #009b72; background-color: #009b72">
-                        <h2 class="fs-3 text-white">toerritten</h2>
+                        <h2 class="fs-5 text-white">ritten</h2>
                         <p class="fs-1 text-white">{{ $rideCount ?? '' }}</p>
                     </div>
                 </div>
 
-                <div class="col-md-2 mb-4">
+                <div class="col-md-2 mb-4 hideOnMobile">
                     <div class="h-100 p-4 rounded-3 text-center" style="border-style: solid; border-width: 1px; border-color: #009ddc; background-color: #009ddc">
-                        <h2 class="fs-3 text-white">leden</h2>
+                        <h2 class="fs-5 text-white">leden</h2>
                         <p class="fs-1 text-white">{{ $userCount ?? '' }}</p>
                     </div>
                 </div>
 
-                <div class="col-md-2 mb-4">
+                <div class="col-md-2 mb-4 hideOnMobile">
                     <div class="h-100 p-4 rounded-3 text-center" style="border-style: solid; border-width: 1px; border-color: #6761a8; background-color: #6761a8">
-                        <h2 class="fs-3 text-white">routes</h2>
+                        <h2 class="fs-5 text-white">routes</h2>
                         <p class="fs-1 text-white">{{ $routeCount ?? '' }}</p>
                     </div>
                 </div>
@@ -68,21 +76,21 @@
 
             <div class="row align-items-md-stretch">
 
-                <div class="col-md-2 mb-4">
+                <div class="col-md-2 mb-4 hideOnMobile">
                     <div class="h-100 p-4 rounded-3 text-center" style="border-style: solid; border-width: 1px; border-color: #009b72; background-color: #009b72">
                         <h2 class="fs-3 text-white"></h2>
                         <p class="fs-1 text-white"></p>
                     </div>
                 </div>
 
-                <div class="col-md-2 mb-4">
+                <div class="col-md-2 mb-4 hideOnMobile">
                     <div class="h-100 p-4 rounded-3 text-center" style="border-style: solid; border-width: 1px; border-color: #009ddc; background-color: #009ddc">
                         <h2 class="fs-3 text-white"></h2>
                         <p class="fs-1 text-white"></p>
                     </div>
                 </div>
 
-                <div class="col-md-2 mb-4">
+                <div class="col-md-2 mb-4 hideOnMobile">
                     <div class="h-100 p-4 rounded-3 text-center" style="border-style: solid; border-width: 1px; border-color: #6761a8; background-color: #6761a8">
                         <h2 class="fs-3 text-white"></h2>
                         <p class="fs-1 text-white"></p>
