@@ -15,7 +15,10 @@ class CreateRideUserTable extends Migration
     {
         Schema::create('ride_user', function (Blueprint $table) {
             $table->foreignId('ride_id');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 

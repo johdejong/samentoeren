@@ -15,7 +15,10 @@ class CreateRideRouteTable extends Migration
     {
         Schema::create('ride_route', function (Blueprint $table) {
             $table->foreignId('ride_id');
-            $table->foreignId('route_id');
+            $table->foreignId('route_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
         });
     }
 
