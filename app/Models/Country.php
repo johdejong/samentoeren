@@ -5,13 +5,11 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Log;
 
 class Country extends Model
 {
     use CrudTrait;
-    // use HasFactory, SoftDeletes;
     use HasFactory;
 
     /*
@@ -41,6 +39,10 @@ class Country extends Model
         return $this->hasMany(\App\Models\Location::class);
     }
 
+    public function residence()
+    {
+        return $this->hasMany(\App\Models\Residence::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

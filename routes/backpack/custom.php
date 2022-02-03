@@ -22,7 +22,9 @@ Route::group([
     Route::crud('user', 'UserCrudController');
     Route::crud('route', 'RouteCrudController');
     Route::crud('distancecategory', 'DistancecategoryCrudController');
+    Route::crud('residence', 'ResidenceCrudController');
 
     Route::get('route/{id}/kaart', 'RouteCrudController@kaart');
     Route::get('route/{id}/download', 'RouteCrudController@download');
+
 }); // this should be the absolute last line of this file

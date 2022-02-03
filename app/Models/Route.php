@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-//use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Route extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-    //use HasFactory, SoftDeletes;
     use HasFactory; 
 
     /**

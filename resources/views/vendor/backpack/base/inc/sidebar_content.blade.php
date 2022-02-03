@@ -10,6 +10,7 @@
     <ul class="nav-dropdown-items">
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('distancecategory') }}"><i class='nav-icon la la-ruler-horizontal'></i></i> Afstandscategorieën</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('country') }}"><i class='nav-icon la la-globe-europe'></i> Landen</a></li>
+        <li class='nav-item'><a class='nav-link' href='{{ backpack_url('residence') }}'><i class='nav-icon la la-city'></i> Plaatsen</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('status') }}"><i class='nav-icon la la-battery-half'></i> Toerstatussen</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('type') }}"><i class='nav-icon la la-stopwatch'></i> Toertypes</a></li>
     </ul>
