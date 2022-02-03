@@ -22,8 +22,20 @@
                     <x-label>{{ $route->description }}</x-label>
                 </div>
                 <div>
+                    <x-label><b>Afstand</b></x-label>
+                    <x-label>{{ $route->distance }}</x-label>
+                </div>
+                <div>
                     <x-label><b>Afstandscategorie</b></x-label>
                     <x-label>{{ $route->distancecategory->distancecategory }}</x-label>
+                </div>
+                <div>
+                    <x-label><b>Vertrek</b></x-label>
+                    <x-label>{{ $route->start_residence->residence }}</x-label>
+                </div>
+                <div>
+                    <x-label><b>Aankomst</b></x-label>
+                    <x-label>{{ $route->finish_residence->residence }}</x-label>
                 </div>
                 <div>
                     <x-label><b>Bestandsgrootte</b></x-label>

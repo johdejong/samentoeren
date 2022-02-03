@@ -21,8 +21,9 @@
                         <tr>
                             <th scope="col">Naam</th>
                             <th scope="col" class="hideOnMobile">Omschrijving</th>
-                            <th scope="col">Afstandscategorie</th>
-                            <th scope="col" class="hideOnMobile text-end">Bestandsgrootte</th>
+                            <th scope="col">Afstand</th>
+                            <th scope="col" class="hideOnMobile">Vertrek</th>
+                            <th scope="col" class="hideOnMobile">Aankomst</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,8 +31,9 @@
                             <tr>     
                                 <td><a href="{{ action('App\Http\Controllers\RouteController@show', $route->id) }}">{{ $route->name }}</a></td>
                                 <td class="hideOnMobile">{{ $route->description }}</td>
-                                <td>{{ $route->distancecategory->distancecategory }}</td>
-                                <td class="hideOnMobile text-end">{{ $route->size }} kb</td>
+                                <td>{{ $route->distance }} km</td>
+                                <td class="hideOnMobile">{{ $route->start_residence->residence }}</td>
+                                <td class="hideOnMobile">{{ $route->finish_residence->residence }}</td>
                             </tr>
                         @endforeach
                     </tbody>
