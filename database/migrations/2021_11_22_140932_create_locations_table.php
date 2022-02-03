@@ -26,7 +26,6 @@ class CreateLocationsTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('restrict');
-            $table->softdeletes();
             $table->timestamps();
         });
     }

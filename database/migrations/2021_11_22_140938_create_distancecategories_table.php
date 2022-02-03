@@ -16,7 +16,6 @@ class CreateDistancecategoriesTable extends Migration
         Schema::create('distancecategories', function (Blueprint $table) {
             $table->id();
             $table->string('distancecategory', 64);
-            $table->softDeletes();
             $table->timestamps();
         });
     }

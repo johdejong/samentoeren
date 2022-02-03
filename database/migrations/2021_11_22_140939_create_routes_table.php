@@ -28,7 +28,6 @@ class CreateRoutesTable extends Migration
             $table->unsignedInteger('size')->nullable();
             $table->string('mimetype', 32)->nullable();
             $table->string('path', 255)->nullable();
-            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('start_residence_id')->references('id')->on('residences');

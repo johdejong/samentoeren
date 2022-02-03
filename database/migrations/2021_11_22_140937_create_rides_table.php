@@ -32,8 +32,10 @@ class CreateRidesTable extends Migration
             $table->time('finish_time')->nullable();
             $table->unsignedBigInteger('finish_location_id')->nullable();
             $table->unsignedInteger('distance');
-            $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('start_location_id')->references('id')->on('locations');
+            $table->foreign('finish_location_id')->references('id')->on('locations');
         });
     }
 

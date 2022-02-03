@@ -17,7 +17,6 @@ class CreateTypesTable extends Migration
             $table->id();
             $table->string('type', 128);
             $table->text('description')->nullable();   
-            $table->softDeletes();
             $table->timestamps();
         });
     }
