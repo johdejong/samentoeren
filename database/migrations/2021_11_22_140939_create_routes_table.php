@@ -17,6 +17,9 @@ class CreateRoutesTable extends Migration
             $table->id();
             $table->string('name', 255);
             $table->text('description')->nullable();
+            $table->unsignedInteger('distance')->nullable();
+            $table->unsignedBigInteger('start_residence_id')->nullable();
+            $table->unsignedBigInteger('finish_residence_id')->nullable();            
             $table->foreignId('distancecategory_id')
                 ->constrained()
                 ->onUpdate('cascade')
@@ -27,6 +30,9 @@ class CreateRoutesTable extends Migration
             $table->string('path', 255)->nullable();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('start_residence_id')->references('id')->on('residences');
+            $table->foreign('finish_residence_id')->references('id')->on('residences');
         });
     }
 
