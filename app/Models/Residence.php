@@ -39,6 +39,16 @@ class Residence extends Model
         return $this->belongsTo(\App\Models\Country::class);
     }
 
+    public function start_residence()
+    {
+        return $this->hasMany(\App\Models\Residence::class, "start_residence_id");
+    }
+
+    public function finish_residence()
+    {
+        return $this->hasMany(\App\Models\Residence::class, "finish_residence_id");
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

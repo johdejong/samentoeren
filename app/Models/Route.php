@@ -24,6 +24,9 @@ class Route extends Model
         'path',
         'mimetype', 
         'distancecategory_id',
+        'start_residence_id',
+        'finish_residence_id',
+        'distance',
     ];
 
     /**
@@ -43,6 +46,16 @@ class Route extends Model
     public function distancecategory()
     {
         return $this->belongsTo(\App\Models\Distancecategory::class);
+    }
+
+    public function start_residence()
+    {
+        return $this->belongsTo(\App\Models\Residence::class, "start_residence_id");
+    }
+    
+    public function finish_residence()
+    {
+        return $this->belongsTo(\App\Models\Residence::class, "finish_residence_id");
     }
 
     public function setImageAttribute($value)
