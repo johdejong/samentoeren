@@ -93,7 +93,18 @@ class LocationCrudController extends CrudController
       CRUD::field('residence')->type('text')->label('Plaats');
       CRUD::field('latitude')->type('text')->label('Latitude');
       CRUD::field('longitude')->type('text')->label('Longitude');
-      CRUD::field('country_id')->type('select')->label('Land')->attribute('name')->model('App\Models\Country');
+      // CRUD::field('country_id')->type('select2')->label('Land')->attribute('name')->model('App\Models\Country');
+      $this->crud->addField([
+        'name' => 'country_id', 
+        'type' => 'select2', 
+        'label' => 'Land', 
+        'default' => '1',
+        'attribute' => 'name', 
+        'model' => 'App\Models\Country',
+        'options' => (function ($query) {
+            return $query->orderBy('name', 'ASC')->get();
+        }),
+      ]);
     }
 
     /**

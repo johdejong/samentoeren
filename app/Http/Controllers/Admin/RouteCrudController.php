@@ -50,8 +50,8 @@ class RouteCrudController extends CrudController
         CRUD::column('name')->label('Naam')->type('text');
         CRUD::column('distance')->type('number')->label('Afstand')->suffix(' km');
         CRUD::column('distancecategory_id')->type('select')->label('Afstandscategorie')->attribute('distancecategory')->model('App\Models\Distancecategory');
-        CRUD::column('start_residence_id')->entity('start_residence')->type('select')->label('Plaats van vertrek')->attribute('residence')->model('App\Models\Residence');
-        CRUD::column('finish_residence_id')->entity('finish_residence')->type('select')->label('Plaats van aankomst')->attribute('residence')->model('App\Models\Residence');
+        CRUD::column('start_residence_id')->entity('start_residence')->type('select')->label('Vertrek')->attribute('residence')->model('App\Models\Residence');
+        CRUD::column('finish_residence_id')->entity('finish_residence')->type('select')->label('Aankomst')->attribute('residence')->model('App\Models\Residence');
                 
         $this->crud->addButtonFromView('line', 'kaart', 'kaart', 'beginning');
 
@@ -108,9 +108,9 @@ class RouteCrudController extends CrudController
         CRUD::field('name')->label('Naam')->type('text');
         CRUD::field('description')->label('Omschrijving')->type('textarea');
         CRUD::field('distance')->type('number')->label('Afstand')->suffix(' km');
-        CRUD::field('distancecategory_id')->type('select')->label('Afstandscategorie')->attribute('distancecategory')->model('App\Models\Distancecategory');
-        CRUD::field('start_residence_id')->entity('start_residence')->type('select')->label('Plaats van vertrek')->attribute('residence')->model('App\Models\Residence');
-        CRUD::field('finish_residence_id')->entity('finish_residence')->type('select')->label('Plaats van aankomst')->attribute('residence')->model('App\Models\Residence');
+        CRUD::field('distancecategory_id')->type('select2')->label('Afstandscategorie')->attribute('distancecategory')->model('App\Models\Distancecategory');
+        CRUD::field('start_residence_id')->entity('start_residence')->type('select2')->label('Plaats van vertrek')->attribute('residence')->model('App\Models\Residence');
+        CRUD::field('finish_residence_id')->entity('finish_residence')->type('select2')->label('Plaats van aankomst')->attribute('residence')->model('App\Models\Residence');
         CRUD::field('image')->label('Track')->type('upload')->upload(true)->disk('gpx');
     }
 

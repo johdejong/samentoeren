@@ -114,14 +114,61 @@ class RideCrudController extends CrudController
 
         CRUD::field('name')->type('text')->label('Naam toer')->tab('Algemeen');
         CRUD::field('description')->type('textarea')->label('Omschrijving')->tab('Algemeen');
-        CRUD::field('type_id')->type('select')->label('Type')->attribute('type')->model('App\Models\Type')->tab('Algemeen');
-        CRUD::field('status_id')->type('select')->label('Status')->attribute('status')->model('App\Models\Status')->tab('Algemeen');
+        // CRUD::field('type_id')->type('select2')->label('Type')->attribute('type')->model('App\Models\Type')->tab('Algemeen');
+        $this->crud->addField([
+            'name' => 'type_id', 
+            'type' => 'select2', 
+            'label' => 'Type', 
+            'attribute' => 'type', 
+            'model' => 'App\Models\Type',
+            'tab' => 'Algemeen',
+            'options' => (function ($query) {
+                return $query->orderBy('type', 'ASC')->get();
+            }),
+        ]);
+        // CRUD::field('status_id')->type('select2')->label('Status')->attribute('status')->model('App\Models\Status')->tab('Algemeen');
+        $this->crud->addField([
+            'name' => 'status_id', 
+            'type' => 'select2', 
+            'label' => 'Status', 
+            'default' => '1',
+            'attribute' => 'status', 
+            'model' => 'App\Models\Status',
+            'tab' => 'Algemeen',
+            'options' => (function ($query) {
+                return $query->orderBy('status', 'ASC')->get();
+            }),
+        ]);
         CRUD::field('start_date')->type('date')->label('Vertrekdatum')->tab('Vertrek');
         CRUD::field('start_time')->type('time')->label('Vertrektijd')->tab('Vertrek');
-        CRUD::field('start_location_id')->entity('start_location')->type('select')->label('Vertreklocatie')->attribute('name')->model('App\Models\Location')->tab('Vertrek');
+        // CRUD::field('start_location_id')->entity('start_location')->type('select2')->label('Vertreklocatie')->attribute('name')->model('App\Models\Location')->tab('Vertrek');
+        $this->crud->addField([
+            'name' => 'start_location_id', 
+            'type' => 'select2', 
+            'label' => 'Vertreklocatie', 
+            'attribute' => 'name', 
+            'model' => 'App\Models\Location',
+            'entity' => 'start_location',
+            'tab' => 'Vertrek',
+            'options' => (function ($query) {
+                return $query->orderBy('name', 'ASC')->get();
+            }),
+        ]);
         CRUD::field('finish_date')->type('date')->label('Aankomstdatum')->tab('Aankomst');
         CRUD::field('finish_time')->type('time')->label('Aankomstijd')->tab('Aankomst');
-        CRUD::field('finish_location_id')->entity('finish_location')->type('select')->label('Aankomstlocatie')->attribute('name')->model('App\Models\Location')->tab('Aankomst');
+        //CRUD::field('finish_location_id')->entity('finish_location')->type('select2')->label('Aankomstlocatie')->attribute('name')->model('App\Models\Location')->tab('Aankomst');
+        $this->crud->addField([
+            'name' => 'finish_location_id', 
+            'type' => 'select2', 
+            'label' => 'Aankomstlocatie', 
+            'attribute' => 'name', 
+            'model' => 'App\Models\Location',
+            'entity' => 'finish_location',
+            'tab' => 'Aankomst',
+            'options' => (function ($query) {
+                return $query->orderBy('name', 'ASC')->get();
+            }),
+        ]);
         CRUD::field('distance')->type('number')->default('100')->label('Afstand')->suffix(' km')->tab('Algemeen');
         CRUD::field('routes')->entity('routes')->type('select2_multiple')->label('Route(s)')->attribute('name')->model('App\Models\Route')->pivot(true)->tab('Algemeen');
         CRUD::field('users')->entity('users')->type('select2_multiple')->label('Deelnemer(s)')->attribute('name')->model('App\Models\User')->pivot(true)->tab('Algemeen');
