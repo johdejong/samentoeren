@@ -15,6 +15,20 @@
 
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 border-b border-gray-200">
+
+            <div class="w-100">
+                <form method="GET" action="{{ url('ride') }}" accept-charset="UTF-8" class="form-inline" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Zoeken..."> 
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary ml-1" type="submit">
+                                <i class="fas fa-search fa-lg fa-fw"></i>
+                            </button>
+                        </span>
+                    </div> 
+                </form>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>

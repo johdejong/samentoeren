@@ -20,7 +20,17 @@ class RideController extends Controller
 {
     public function index(Request $request)
     {
-        $rides = Ride::orderBy('start_date', 'desc')->paginate(10); 
+        $keyword = $request->get('search');
+
+        if (!empty($keyword)) {
+            $rides = Ride::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('distance', '<=', "$keyword")
+                ->orWhere('start_date', 'LIKE', "%$keyword%")
+                ->orderBy('start_date', 'desc')
+                ->paginate(10);
+        } else {
+            $rides = Ride::orderBy('start_date', 'desc')->paginate(10);
+        }
 
         return view('ride.index', compact('rides'));
     }

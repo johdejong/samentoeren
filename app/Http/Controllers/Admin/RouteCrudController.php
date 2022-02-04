@@ -7,13 +7,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use App\Models\Route;
 use Illuminate\Support\Facades\Storage;
-//use Illuminate\Support\Facades\File;
 
-/**
- * Class RouteCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
 class RouteCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitStore; }
@@ -24,11 +18,6 @@ class RouteCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     *
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\Route::class);
@@ -39,12 +28,6 @@ class RouteCrudController extends CrudController
         $this->crud->enableExportButtons();
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     *
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
     protected function setupListOperation()
     {
         CRUD::column('name')->label('Naam')->type('text');
@@ -56,7 +39,6 @@ class RouteCrudController extends CrudController
         $this->crud->addButtonFromView('line', 'kaart', 'kaart', 'beginning');
 
         // Filters
-
         // Afstandscategorie
         $this->crud->addFilter([
             'name'  => 'distancecategory_id',
@@ -94,13 +76,6 @@ class RouteCrudController extends CrudController
         });
     }
 
-    /**
-     * Define what happens when the Create operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-create
-     * @return void
-     */
-
     protected function setupCreateOperation()
     {
         CRUD::setValidation(RouteRequest::class);
@@ -108,18 +83,41 @@ class RouteCrudController extends CrudController
         CRUD::field('name')->label('Naam')->type('text');
         CRUD::field('description')->label('Omschrijving')->type('textarea');
         CRUD::field('distance')->type('number')->label('Afstand')->suffix(' km');
-        CRUD::field('distancecategory_id')->type('select2')->label('Afstandscategorie')->attribute('distancecategory')->model('App\Models\Distancecategory');
-        CRUD::field('start_residence_id')->entity('start_residence')->type('select2')->label('Plaats van vertrek')->attribute('residence')->model('App\Models\Residence');
-        CRUD::field('finish_residence_id')->entity('finish_residence')->type('select2')->label('Plaats van aankomst')->attribute('residence')->model('App\Models\Residence');
+        $this->crud->addField([
+            'name' => 'distancecategory_id', 
+            'type' => 'select2', 
+            'label' => 'Afstandscategorie', 
+            'attribute' => 'distancecategory', 
+            'model' => 'App\Models\Distancecategory',
+            'options' => (function ($query) {
+                return $query->orderBy('distancecategory', 'ASC')->get();
+            }),
+        ]);
+        $this->crud->addField([
+            'name' => 'start_residence_id', 
+            'type' => 'select2', 
+            'label' => 'Plaats van vertrek', 
+            'attribute' => 'residence', 
+            'entity' => 'start_residence',
+            'model' => 'App\Models\Residence',
+            'options' => (function ($query) {
+                return $query->orderBy('residence', 'ASC')->get();
+            }),
+        ]);
+        $this->crud->addField([
+            'name' => 'finish_residence_id', 
+            'type' => 'select2', 
+            'label' => 'Plaats van aankomst', 
+            'attribute' => 'residence', 
+            'entity' => 'finish_residence',
+            'model' => 'App\Models\Residence',
+            'options' => (function ($query) {
+                return $query->orderBy('residence', 'ASC')->get();
+            }),
+        ]);
         CRUD::field('image')->label('Track')->type('upload')->upload(true)->disk('gpx');
     }
 
-    /**
-     * Define what happens when the Update operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-update
-     * @return void
-     */
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

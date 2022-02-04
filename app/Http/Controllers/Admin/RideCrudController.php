@@ -7,11 +7,6 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Support\Facades\Route;
 
-/**
- * Class RideCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
 class RideCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -20,11 +15,6 @@ class RideCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     *
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\Ride::class);
@@ -36,34 +26,19 @@ class RideCrudController extends CrudController
         $this->crud->enableDetailsRow();
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     *
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
     protected function setupListOperation()
     {
         CRUD::column('name')->type('text')->label('Naam toer');
-        // CRUD::column('description')->type('textarea')->label('Omschrijving');
         CRUD::column('type_id')->type('select')->label('Type')->attribute('type')->model('App\Models\Type');
         CRUD::column('status_id')->type('select')->label('Status')->attribute('status')->model('App\Models\Status');
         CRUD::column('start_date')->type('date')->label('Vertrekdatum');
-        // CRUD::column('start_time')->type('time')->label('Vertrektijd');
-        // CRUD::column('start_location_id')->entity('start_location')->type('select')->label('Vertreklocatie')->attribute('name')->model('App\Models\Location');
-        // CRUD::column('finish_date')->type('date')->label('Aankomstdatum');
-        // CRUD::column('finish_time')->type('time')->label('Aankomstijd');
-        // CRUD::column('finish_location_id')->entity('finish_location')->type('select')->label('Aankomstlocatie')->attribute('name')->model('App\Models\Location');
         CRUD::column('distance')->type('number')->default('100')->label('Afstand')->suffix(' km');
-        // CRUD::column('routes')->entity('routes')->type('select_multiple')->label('Route(s)')->attribute('name');
-        // CRUD::column('users')->entity('users')->type('select_multiple')->label('Deelnemer(s)')->attribute('name');
         $this->crud->query->withCount('users'); 
         CRUD::column('users_count')->type('text')->label('Deelnemer(s)');
         $this->crud->query->withCount('routes'); 
         CRUD::column('routes_count')->type('text')->label('Route(s)');
 
         // Filters
-
         // Status
         $this->crud->addFilter([
             'name'  => 'status_id',
@@ -102,19 +77,12 @@ class RideCrudController extends CrudController
         });
     }
 
-    /**
-     * Define what happens when the Create operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-create
-     * @return void
-     */
     protected function setupCreateOperation()
     {
         CRUD::setValidation(RideRequest::class);
 
         CRUD::field('name')->type('text')->label('Naam toer')->tab('Algemeen');
         CRUD::field('description')->type('textarea')->label('Omschrijving')->tab('Algemeen');
-        // CRUD::field('type_id')->type('select2')->label('Type')->attribute('type')->model('App\Models\Type')->tab('Algemeen');
         $this->crud->addField([
             'name' => 'type_id', 
             'type' => 'select2', 
@@ -126,7 +94,6 @@ class RideCrudController extends CrudController
                 return $query->orderBy('type', 'ASC')->get();
             }),
         ]);
-        // CRUD::field('status_id')->type('select2')->label('Status')->attribute('status')->model('App\Models\Status')->tab('Algemeen');
         $this->crud->addField([
             'name' => 'status_id', 
             'type' => 'select2', 
@@ -141,7 +108,6 @@ class RideCrudController extends CrudController
         ]);
         CRUD::field('start_date')->type('date')->label('Vertrekdatum')->tab('Vertrek');
         CRUD::field('start_time')->type('time')->label('Vertrektijd')->tab('Vertrek');
-        // CRUD::field('start_location_id')->entity('start_location')->type('select2')->label('Vertreklocatie')->attribute('name')->model('App\Models\Location')->tab('Vertrek');
         $this->crud->addField([
             'name' => 'start_location_id', 
             'type' => 'select2', 
@@ -156,7 +122,6 @@ class RideCrudController extends CrudController
         ]);
         CRUD::field('finish_date')->type('date')->label('Aankomstdatum')->tab('Aankomst');
         CRUD::field('finish_time')->type('time')->label('Aankomstijd')->tab('Aankomst');
-        //CRUD::field('finish_location_id')->entity('finish_location')->type('select2')->label('Aankomstlocatie')->attribute('name')->model('App\Models\Location')->tab('Aankomst');
         $this->crud->addField([
             'name' => 'finish_location_id', 
             'type' => 'select2', 
@@ -174,12 +139,6 @@ class RideCrudController extends CrudController
         CRUD::field('users')->entity('users')->type('select2_multiple')->label('Deelnemer(s)')->attribute('name')->model('App\Models\User')->pivot(true)->tab('Algemeen');
     }
 
-    /**
-     * Define what happens when the Update operation is loaded.
-     *
-     * @see https://backpackforlaravel.com/docs/crud-operation-update
-     * @return void
-     */
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

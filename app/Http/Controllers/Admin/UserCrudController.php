@@ -7,11 +7,6 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Illuminate\Support\Facades\Hash;
 
-/**
- * Class UserCrudController
- * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
- */
 class UserCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
@@ -20,11 +15,6 @@ class UserCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\User::class);
@@ -35,12 +25,6 @@ class UserCrudController extends CrudController
         $this->crud->enableExportButtons();
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     * 
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
     protected function setupListOperation()
     {
         CRUD::column('name')->label('Naam')->type('text');
@@ -49,7 +33,6 @@ class UserCrudController extends CrudController
         CRUD::column('active')->label('Actief')->type('boolean');
 
         // Filters
-
         // Beheerder
         $this->crud->addFilter([
             'type'  => 'simple',
@@ -73,29 +56,16 @@ class UserCrudController extends CrudController
         });
     }
 
-    /**
-     * Define what happens when the Create operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-create
-     * @return void
-     */
     protected function setupCreateOperation()
     {
         CRUD::setValidation(UserRequest::class);
 
         CRUD::field('name')->label('Naam')->type('text');
         CRUD::field('email')->label('E-mailadres')->type('email');
-        // CRUD::field('password')->label('Wachtwoord')->type('password');
         CRUD::field('admin')->label('Beheerder')->type('toggle')->view_namespace('toggle-field-for-backpack::fields');
         CRUD::field('active')->label('Actief')->type('toggle')->view_namespace('toggle-field-for-backpack::fields');
     }
 
-    /**
-     * Define what happens when the Update operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-update
-     * @return void
-     */
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();

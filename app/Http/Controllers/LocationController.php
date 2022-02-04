@@ -10,7 +10,18 @@ class LocationController extends Controller
 {
     public function index(Request $request)
     {
-        $locations = Location::orderBy('postal_code', 'asc')->paginate(10);
+        $keyword = $request->get('search');
+
+        if (!empty($keyword)) {
+            $locations = Location::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('address', 'LIKE', "%$keyword%")
+                ->orWhere('postal_code', 'LIKE', "%$keyword%")
+                ->orWhere('residence', 'LIKE', "%$keyword%")
+                ->orderBy('postal_code', 'asc')
+                ->paginate(10);
+        } else {
+            $locations = Location::orderBy('postal_code', 'asc')->paginate(10);
+        }
 
         return view('location.index', compact('locations'));
     }

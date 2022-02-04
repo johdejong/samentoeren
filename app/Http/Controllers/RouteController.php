@@ -11,7 +11,17 @@ class RouteController extends Controller
 {
     public function index(Request $request)
     {
-        $routes = Route::orderBy('created_at', 'desc')->paginate(10);
+        $keyword = $request->get('search');
+
+        if (!empty($keyword)) {
+            $routes = Route::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('distance', '<=', "$keyword")
+                ->orWhere('description', 'LIKE', "%$keyword%")
+                ->orderBy('name', 'asc')
+                ->paginate(10);
+        } else {
+            $routes = Route::orderBy('name', 'asc')->paginate(10);
+        }
 
         return view('route.index', compact('routes'));
     }
