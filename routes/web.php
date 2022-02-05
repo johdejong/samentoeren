@@ -40,5 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('ride/download/{route}', [\App\Http\Controllers\RideController::class, 'download'])->name('ride.frontend.download');
     Route::get('ride/{ride}/join', [\App\Http\Controllers\RideController::class, 'join'])->name('ride.frontend.join');
     Route::get('ride/{ride}/unjoin', [\App\Http\Controllers\RideController::class, 'unjoin'])->name('ride.frontend.unjoin');
+    Route::get('ride/sortByNameUp', [\App\Http\Controllers\RideController::class, 'sortByNameUp'])->name('ride.frontend.sortByNameUp');
+    Route::get('ride/sortByNameDown', [\App\Http\Controllers\RideController::class, 'sortByNameDown'])->name('ride.frontend.sortByNameDown');
+    Route::get('ride/sortByDistanceUp', [\App\Http\Controllers\RideController::class, 'sortByDistanceUp'])->name('ride.frontend.sortByDistanceUp');
+    Route::get('ride/sortByDistanceDown', [\App\Http\Controllers\RideController::class, 'sortByDistanceDown'])->name('ride.frontend.sortByDistanceDown');
 });
 

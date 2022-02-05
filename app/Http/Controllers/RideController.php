@@ -111,4 +111,28 @@ class RideController extends Controller
 
         return response()->download($download);
     }
+
+    public function sortByNameUp(Request $request)
+    {
+        $rides = Ride::orderBy('name', 'asc')->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
+
+    public function sortByNameDown(Request $request)
+    {
+        $rides = Ride::orderBy('name', 'desc')->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
+
+    public function sortByDistanceUp(Request $request)
+    {
+        $rides = Ride::orderBy('distance', 'asc')->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
+
+    public function sortByDistanceDown(Request $request)
+    {
+        $rides = Ride::orderBy('distance', 'desc')->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
 }

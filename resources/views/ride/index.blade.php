@@ -34,9 +34,17 @@
                     <thead>
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">Naam</th>
+                            <th scope="col">
+                                Naam 
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameUp') }}"><i class="las la-sort-alpha-up"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameDown') }}"><i class="las la-sort-alpha-down-alt"></i></a>
+                            </th>
                             <th scope="col">Datum</th>
-                            <th class="text-end" scope="col">Afstand</th>
+                            <th class="text-end" scope="col">
+                                Afstand                                 
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceUp') }}"><i class="las la-sort-numeric-up"></i></a>
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceDown') }}"><i class="las la-sort-numeric-down-alt"></i></a>
+                                </th>
                             <th scope="col" class="hideOnMobile">Inschrijving</th>
                         </tr>
                     </thead>
@@ -44,7 +52,7 @@
                         @foreach ($rides as $ride)
                             <tr>
                                 @if ($ride->users->contains(Auth::user()->id))
-                                    <td><i class="las la-thumbtack"></i></td>
+                                    <td><i class="las la-biking"></i></td>
                                 @else
                                     <td></td>
                                 @endif                                
