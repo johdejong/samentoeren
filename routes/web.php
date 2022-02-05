@@ -44,5 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::get('ride/sortByNameDown', [\App\Http\Controllers\RideController::class, 'sortByNameDown'])->name('ride.frontend.sortByNameDown');
     Route::get('ride/sortByDistanceUp', [\App\Http\Controllers\RideController::class, 'sortByDistanceUp'])->name('ride.frontend.sortByDistanceUp');
     Route::get('ride/sortByDistanceDown', [\App\Http\Controllers\RideController::class, 'sortByDistanceDown'])->name('ride.frontend.sortByDistanceDown');
+    Route::get('ride/sortByJoinUp', [\App\Http\Controllers\RideController::class, 'sortByJoinUp'])->name('ride.frontend.sortByJoinUp');
+    Route::get('ride/sortByJoinDown', [\App\Http\Controllers\RideController::class, 'sortByJoinDown'])->name('ride.frontend.sortByJoinDown');
+    Route::get('ride/sortByStartDateUp', [\App\Http\Controllers\RideController::class, 'sortByStartDateUp'])->name('ride.frontend.sortByStartDateUp');
+    Route::get('ride/sortByStartDateDown', [\App\Http\Controllers\RideController::class, 'sortByStartDateDown'])->name('ride.frontend.sortByStartDateDown');
 });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RideRequest;
 use App\Models\Ride;
+use App\Models\Status;
 use App\Models\Route;
 use App\Models\Distancecategory;
 use App\Models\User;
@@ -133,6 +134,36 @@ class RideController extends Controller
     public function sortByDistanceDown(Request $request)
     {
         $rides = Ride::orderBy('distance', 'desc')->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
+
+    public function sortByJoinUp(Request $request)
+    {
+        $rides = Ride::with('status')
+            ->orderBy(Status::select('status')
+            ->whereColumn('statuses.id', 'rides.status_id'), 'asc')
+            ->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
+
+    public function sortByJoinDown(Request $request)
+    {
+        $rides = Ride::with('status')
+            ->orderBy(Status::select('status')
+            ->whereColumn('statuses.id', 'rides.status_id'), 'desc')
+            ->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
+
+    public function sortByStartDateUp(Request $request)
+    {
+        $rides = Ride::orderBy('start_date', 'asc')->paginate(10);
+        return view('ride.index', compact('rides'));
+    }
+
+    public function sortByStartDateDown(Request $request)
+    {
+        $rides = Ride::orderBy('start_date', 'desc')->paginate(10);
         return view('ride.index', compact('rides'));
     }
 }

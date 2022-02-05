@@ -36,16 +36,24 @@
                             <th scope="col"></th>
                             <th scope="col">
                                 Naam 
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameUp') }}"><i class="las la-sort-alpha-up"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameDown') }}"><i class="las la-sort-alpha-down-alt"></i></a>
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameUp') }}"><i class="las la-sort-up"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameDown') }}"><i class="las la-sort-down"></i></a>
                             </th>
-                            <th scope="col">Datum</th>
+                            <th scope="col">
+                                Datum
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByStartDateUp') }}"><i class="las la-sort-up"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByStartDateDown') }}"><i class="las la-sort-down"></i></a>   
+                            </th>
                             <th class="text-end" scope="col">
                                 Afstand                                 
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceUp') }}"><i class="las la-sort-numeric-up"></i></a>
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceDown') }}"><i class="las la-sort-numeric-down-alt"></i></a>
-                                </th>
-                            <th scope="col" class="hideOnMobile">Inschrijving</th>
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceUp') }}"><i class="las la-sort-up"></i></a>
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceDown') }}"><i class="las la-sort-down"></i></a>
+                            </th>
+                            <th scope="col" class="hideOnMobile">
+                                Inschrijving
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByJoinUp') }}"><i class="las la-sort-up"></i></a>
+                                <a href="{{ action('App\Http\Controllers\RideController@sortByJoinDown') }}"><i class="las la-sort-down"></i></a>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
