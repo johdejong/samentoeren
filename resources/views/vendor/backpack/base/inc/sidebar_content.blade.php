@@ -1,5 +1,5 @@
 <!-- This file is used to store sidebar items, starting with Backpack\Base 0.9.0 -->
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class='la la-home nav-icon'></i> {{ trans('backpack::base.dashboard') }}</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class='nav-icon la la-home '></i> {{ trans('backpack::base.dashboard') }}</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('ride') }}"><i class='nav-icon la la-map-signs'></i> Toerritten</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('location') }}"><i class='nav-icon la la-map-marked'></i> Locaties</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('route') }}"><i class='nav-icon la la-route'></i> Routes</a></li>
