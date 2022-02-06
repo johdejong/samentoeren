@@ -28,6 +28,16 @@ Route::middleware('auth')->group(function () {
     Route::get('route', [\App\Http\Controllers\RouteController::class, 'index'])->name('route.frontend.index');
     Route::get('route/show/{route}', [\App\Http\Controllers\RouteController::class, 'show'])->name('route.frontend.show');
     Route::get('route/download/{route}', [\App\Http\Controllers\RouteController::class, 'download'])->name('route.frontend.download');
+    Route::get('route/sortByNameUp', [\App\Http\Controllers\RouteController::class, 'sortByNameUp'])->name('route.frontend.sortByNameUp');
+    Route::get('route/sortByNameDown', [\App\Http\Controllers\RouteController::class, 'sortByNameDown'])->name('route.frontend.sortByNameDown');
+    Route::get('route/sortByDescriptionUp', [\App\Http\Controllers\RouteController::class, 'sortByDescriptionUp'])->name('route.frontend.sortByDescriptionUp');
+    Route::get('route/sortByDescriptionDown', [\App\Http\Controllers\RouteController::class, 'sortByDescriptionDown'])->name('route.frontend.sortByDescriptionDown');
+    Route::get('route/sortByDistanceUp', [\App\Http\Controllers\RouteController::class, 'sortByDistanceUp'])->name('route.frontend.sortByDistanceUp');
+    Route::get('route/sortByDistanceDown', [\App\Http\Controllers\RouteController::class, 'sortByDistanceDown'])->name('route.frontend.sortByDistanceDown');
+    Route::get('route/sortByStartResidenceUp', [\App\Http\Controllers\RouteController::class, 'sortByStartResidenceUp'])->name('route.frontend.sortByStartResidenceUp');
+    Route::get('route/sortByStartResidenceDown', [\App\Http\Controllers\RouteController::class, 'sortByStartResidenceDown'])->name('route.frontend.sortByStartResidenceDown');
+    Route::get('route/sortByFinishResidenceUp', [\App\Http\Controllers\RouteController::class, 'sortByFinishResidenceUp'])->name('route.frontend.sortByFinishResidenceUp');
+    Route::get('route/sortByFinishResidenceDown', [\App\Http\Controllers\RouteController::class, 'sortByFinishResidenceDown'])->name('route.frontend.sortByFinishResidenceDown');
 
     // Location
     Route::get('location', [\App\Http\Controllers\LocationController::class, 'index'])->name('location.frontend.index');

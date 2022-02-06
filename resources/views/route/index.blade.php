@@ -33,11 +33,31 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Naam</th>
-                            <th scope="col" class="hideOnMobile">Omschrijving</th>
-                            <th scope="col">Afstand</th>
-                            <th scope="col" class="hideOnMobile">Vertrek</th>
-                            <th scope="col" class="hideOnMobile">Aankomst</th>
+                            <th scope="col">
+                                Naam 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByNameUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByNameDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th scope="col">
+                                Omschrijving 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByDescriptionUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByDescriptionDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th class="text-end" scope="col">
+                                Afstand                                 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByDistanceUp') }}"><i class="las la-sort-up fa-lg"></i></a>
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByDistanceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th scope="col">
+                                Vertrek 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByStartResidenceUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByStartResidenceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th scope="col">
+                                Aankomst 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByFinishResidenceUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\RouteController@sortByFinishResidenceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,7 +65,7 @@
                             <tr>     
                                 <td><a href="{{ action('App\Http\Controllers\RouteController@show', $route->id) }}">{{ $route->name }}</a></td>
                                 <td class="hideOnMobile">{{ $route->description }}</td>
-                                <td>{{ $route->distance }} km</td>
+                                <td class="text-end">{{ $route->distance }} km</td>
                                 <td class="hideOnMobile">{{ $route->start_residence->residence }}</td>
                                 <td class="hideOnMobile">{{ $route->finish_residence->residence }}</td>
                             </tr>
