@@ -33,11 +33,31 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Naam</th>
-                            <th scope="col">Adres</th>
-                            <th scope="col" class="hideOnMobile">Postcode</th>
-                            <th scope="col" class="hideOnMobile">Plaats</th>
-                            <th scope="col" class="hideOnMobile">Land</th>
+                            <th scope="col">
+                                Naam 
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByNameUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByNameDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th scope="col">
+                                Adres 
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByAddressUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByAddressDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th scope="col" class="hideOnMobile">
+                                Postcode
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByPostalCodeUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByPostalCodeDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th scope="col" class="hideOnMobile">
+                                Plaats
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByResidenceUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByResidenceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
+                            <th scope="col" class="hideOnMobile">
+                                Land
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByCountryUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action('App\Http\Controllers\LocationController@sortByCountryDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

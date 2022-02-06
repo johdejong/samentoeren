@@ -42,6 +42,16 @@ Route::middleware('auth')->group(function () {
     // Location
     Route::get('location', [\App\Http\Controllers\LocationController::class, 'index'])->name('location.frontend.index');
     Route::get('location/show/{location}', [\App\Http\Controllers\LocationController::class, 'show'])->name('location.frontend.show');
+    Route::get('location/sortByNameUp', [\App\Http\Controllers\LocationController::class, 'sortByNameUp'])->name('location.frontend.sortByNameUp');
+    Route::get('location/sortByNameDown', [\App\Http\Controllers\LocationController::class, 'sortByNameDown'])->name('location.frontend.sortByNameDown');
+    Route::get('location/sortByAddressUp', [\App\Http\Controllers\LocationController::class, 'sortByAddressUp'])->name('location.frontend.sortByAddressUp');
+    Route::get('location/sortByAddressDown', [\App\Http\Controllers\LocationController::class, 'sortByAddressDown'])->name('location.frontend.sortByAddressDown');
+    Route::get('location/sortByPostalCodeUp', [\App\Http\Controllers\LocationController::class, 'sortByPostalCodeUp'])->name('location.frontend.sortByPostalCodeUp');
+    Route::get('location/sortByPostalCodeDown', [\App\Http\Controllers\LocationController::class, 'sortByPostalCodeDown'])->name('location.frontend.sortByPostalCodeDown');
+    Route::get('location/sortByResidenceUp', [\App\Http\Controllers\LocationController::class, 'sortByResidenceUp'])->name('location.frontend.sortByResidenceUp');
+    Route::get('location/sortByResidenceDown', [\App\Http\Controllers\LocationController::class, 'sortByResidenceDown'])->name('location.frontend.sortByResidenceDown');
+    Route::get('location/sortByCountryUp', [\App\Http\Controllers\LocationController::class, 'sortByCountryUp'])->name('location.frontend.sortByCountryUp');
+    Route::get('location/sortByCountryDown', [\App\Http\Controllers\LocationController::class, 'sortByCountryDown'])->name('location.frontend.sortByCountryDown');
 
     // Ride
     Route::get('ride', [\App\Http\Controllers\RideController::class, 'index'])->name('ride.frontend.index');
