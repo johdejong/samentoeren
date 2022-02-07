@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('backup:clean --disable-notifications')->daily()->at('22:50');
         $schedule->command('backup:run --disable-notifications')->daily()->at('23:00');
+
+        $schedule->command('ride:close')->everyFiveMinutes();
     }
 
     /**
