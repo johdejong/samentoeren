@@ -38,7 +38,7 @@
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByNameUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByNameDown') }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="hideOnMobile">
                                 Omschrijving 
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByDescriptionUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByDescriptionDown') }}"><i class="las la-sort-down fa-lg"></i></a>
@@ -48,12 +48,12 @@
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByDistanceUp') }}"><i class="las la-sort-up fa-lg"></i></a>
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByDistanceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="hideOnMobile">
                                 Vertrek 
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByStartResidenceUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByStartResidenceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="hideOnMobile">
                                 Aankomst 
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByFinishResidenceUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\RouteController@sortByFinishResidenceDown') }}"><i class="las la-sort-down fa-lg"></i></a>

@@ -38,7 +38,7 @@
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByNameUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByNameDown') }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="hideOnMobile">
                                 Adres 
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByAddressUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByAddressDown') }}"><i class="las la-sort-down fa-lg"></i></a>
@@ -48,7 +48,7 @@
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByPostalCodeUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByPostalCodeDown') }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
-                            <th scope="col" class="hideOnMobile">
+                            <th scope="col">
                                 Plaats
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByResidenceUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
                                 <a href="{{ action('App\Http\Controllers\LocationController@sortByResidenceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
@@ -64,7 +64,7 @@
                         @foreach ($locations as $location)
                             <tr>   
                                 <td><a href="{{ action('App\Http\Controllers\LocationController@show', $location->id) }}">{{ $location->name }}</a></td>
-                                <td>{{ $location->address }}</td>
+                                <td class="hideOnMobile">{{ $location->address }}</td>
                                 <td class="hideOnMobile">{{ $location->postal_code }}</td>
                                 <td>{{ $location->residence }}</td>
                                 <td class="hideOnMobile">{{ $location->country->name }}</td>
