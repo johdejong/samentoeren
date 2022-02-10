@@ -29,7 +29,6 @@ class TypeControllerTest extends TestCase
         $response->assertViewHas('types');
     }
 
-
     /**
      * @test
      */
@@ -40,7 +39,6 @@ class TypeControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('type.create');
     }
-
 
     /**
      * @test
@@ -59,7 +57,7 @@ class TypeControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $type = $this->faker->word;
+        $type = $this->faker->word();
 
         $response = $this->post(route('type.store'), [
             'type' => $type,
@@ -75,7 +73,6 @@ class TypeControllerTest extends TestCase
         $response->assertSessionHas('type.id', $type->id);
     }
 
-
     /**
      * @test
      */
@@ -90,7 +87,6 @@ class TypeControllerTest extends TestCase
         $response->assertViewHas('type');
     }
 
-
     /**
      * @test
      */
@@ -104,7 +100,6 @@ class TypeControllerTest extends TestCase
         $response->assertViewIs('type.edit');
         $response->assertViewHas('type');
     }
-
 
     /**
      * @test
@@ -124,7 +119,7 @@ class TypeControllerTest extends TestCase
     public function update_redirects()
     {
         $type = Type::factory()->create();
-        $type = $this->faker->word;
+        $type = $this->faker->word();
 
         $response = $this->put(route('type.update', $type), [
             'type' => $type,
@@ -137,7 +132,6 @@ class TypeControllerTest extends TestCase
 
         $this->assertEquals($type, $type->type);
     }
-
 
     /**
      * @test

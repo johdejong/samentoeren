@@ -5,6 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 // use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Location extends Model
@@ -19,8 +20,8 @@ class Location extends Model
     */
 
     protected $table = 'locations';
-    protected $guarded = ['id'];
 
+    protected $guarded = ['id'];
 
     /*
     |--------------------------------------------------------------------------
@@ -41,12 +42,12 @@ class Location extends Model
 
     public function start_location()
     {
-        return $this->hasMany(\App\Models\Location::class, "start_location_id");
+        return $this->hasMany(self::class, 'start_location_id');
     }
 
     public function finish_location()
     {
-        return $this->hasMany(\App\Models\Location::class, "finish_location_id");
+        return $this->hasMany(self::class, 'finish_location_id');
     }
 
     /*

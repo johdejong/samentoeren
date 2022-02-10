@@ -17,7 +17,7 @@ class StatusCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Status::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/status');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/status');
         CRUD::setEntityNameStrings('toerstatus', 'Toerstatussen');
 
         $this->crud->orderBy('status', 'ASC');

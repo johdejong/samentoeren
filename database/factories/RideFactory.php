@@ -2,19 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Ride;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Ride;
 
 class RideFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Ride::class;
-
     /**
      * Define the model's default state.
      *
@@ -23,8 +16,8 @@ class RideFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'description' => $this->faker->text,
+            'name' => $this->faker->name(),
+            'description' => $this->faker->text(),
             'type_id' => $this->faker->randomNumber(),
             'status_id' => $this->faker->randomNumber(),
             'start_date' => $this->faker->date(),

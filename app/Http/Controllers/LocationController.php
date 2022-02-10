@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LocationRequest;
-use App\Models\Location;
 use App\Models\Country;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -13,7 +13,7 @@ class LocationController extends Controller
     {
         $keyword = $request->get('search');
 
-        if (!empty($keyword)) {
+        if (! empty($keyword)) {
             $locations = Location::where('name', 'LIKE', "%$keyword%")
                 ->orWhere('address', 'LIKE', "%$keyword%")
                 ->orWhere('postal_code', 'LIKE', "%$keyword%")
@@ -35,48 +35,56 @@ class LocationController extends Controller
     public function sortByNameUp(Request $request)
     {
         $locations = Location::orderBy('name', 'asc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
     public function sortByNameDown(Request $request)
     {
         $locations = Location::orderBy('name', 'desc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
     public function sortByAddressUp(Request $request)
     {
         $locations = Location::orderBy('address', 'asc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
     public function sortByAddressDown(Request $request)
     {
         $locations = Location::orderBy('address', 'desc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
     public function sortByPostalCodeUp(Request $request)
     {
         $locations = Location::orderBy('postal_code', 'asc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
     public function sortByPostalCodeDown(Request $request)
     {
         $locations = Location::orderBy('postal_code', 'desc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
     public function sortByResidenceUp(Request $request)
     {
         $locations = Location::orderBy('residence', 'asc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
     public function sortByResidenceDown(Request $request)
     {
         $locations = Location::orderBy('residence', 'desc')->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
@@ -86,6 +94,7 @@ class LocationController extends Controller
             ->orderBy(Country::select('name')
             ->whereColumn('countries.id', 'locations.country_id'), 'asc')
             ->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 
@@ -95,6 +104,7 @@ class LocationController extends Controller
             ->orderBy(Country::select('name')
             ->whereColumn('countries.id', 'locations.country_id'), 'desc')
             ->paginate(10);
+
         return view('location.index', compact('locations'));
     }
 }

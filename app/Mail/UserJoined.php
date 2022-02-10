@@ -2,18 +2,20 @@
 
 namespace App\Mail;
 
+use App\Models\Ride;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Ride;
-use App\Models\User;
 
 class UserJoined extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $ride, $user;
+    public $ride;
+
+    public $user;
 
     /**
      * Create a new message instance.

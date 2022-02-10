@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoutesTable extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -19,7 +18,7 @@ class CreateRoutesTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('distance')->nullable();
             $table->unsignedBigInteger('start_residence_id')->nullable();
-            $table->unsignedBigInteger('finish_residence_id')->nullable();            
+            $table->unsignedBigInteger('finish_residence_id')->nullable();
             $table->foreignId('distancecategory_id')
                 ->constrained()
                 ->onUpdate('cascade')
@@ -44,4 +43,4 @@ class CreateRoutesTable extends Migration
     {
         Schema::dropIfExists('routes');
     }
-}
+};

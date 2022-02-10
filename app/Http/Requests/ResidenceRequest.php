@@ -31,7 +31,7 @@ class ResidenceRequest extends FormRequest
                 'string',
                 'min:2',
                 'max:255',
-            ] 
+            ],
         ];
     }
 

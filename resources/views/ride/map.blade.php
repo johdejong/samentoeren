@@ -11,7 +11,7 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 mt-2">
                 <div>
-                    <a href="{{ action('App\Http\Controllers\RideController@download', $route->id) }}" class="btn btn-outline-primary mt-2">Downloaden</a>
+                    <a href="{{ action([\App\Http\Controllers\RideController::class, 'download'], $route->id) }}" class="btn btn-outline-primary mt-2">Downloaden</a>
                 </div> 
                 <div>
                     <x-label><b>Naam</b></x-label>
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <a href="{{ action('App\Http\Controllers\RideController@show', $ride->id) }}" class="btn btn-outline-primary mt-2">Sluiten</a>  
+    <a href="{{ action([\App\Http\Controllers\RideController::class, 'show'], $ride->id) }}" class="btn btn-outline-primary mt-2">Sluiten</a>  
 
 </x-app-layout>
 

@@ -17,7 +17,7 @@ class DistancecategoryCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Distancecategory::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/distancecategory');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/distancecategory');
         CRUD::setEntityNameStrings('afstandscategorie', 'Afstandscategorieën');
 
         $this->crud->orderBy('distancecategory', 'ASC');
@@ -33,7 +33,7 @@ class DistancecategoryCrudController extends CrudController
     {
         CRUD::setValidation(DistancecategoryRequest::class);
 
-        CRUD::field('distancecategory')->label('Afstandscategorie')->type('text');        
+        CRUD::field('distancecategory')->label('Afstandscategorie')->type('text');
     }
 
     protected function setupUpdateOperation()

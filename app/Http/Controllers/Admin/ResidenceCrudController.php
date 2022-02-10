@@ -17,7 +17,7 @@ class ResidenceCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Residence::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/residence');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/residence');
         CRUD::setEntityNameStrings('plaats', 'Plaatsen');
 
         $this->crud->orderBy('residence', 'ASC');
@@ -27,19 +27,19 @@ class ResidenceCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('residence')->type('text')->label('Plaats');
-        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model('App\Models\Country');
+        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model(\App\Models\Country::class);
 
-        // Filters  
+        // Filters
         // Land
         $this->crud->addFilter([
             'name'  => 'country_id',
             'type'  => 'select2',
             'label' => 'Land',
             'placeholder' => 'Kies een land',
-            ], function() {
-                return \App\Models\Country::all()->pluck('name', 'id')->toArray();
-            }, function($value) { 
-                $this->crud->addClause('where', 'country_id', $value);
+        ], function () {
+            return \App\Models\Country::all()->pluck('name', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'country_id', $value);
         });
     }
 
@@ -49,12 +49,12 @@ class ResidenceCrudController extends CrudController
 
         CRUD::field('residence')->type('text')->label('Plaats');
         $this->crud->addField([
-            'name' => 'country_id', 
-            'type' => 'select2', 
-            'label' => 'Land', 
+            'name' => 'country_id',
+            'type' => 'select2',
+            'label' => 'Land',
             'default' => '1',
-            'attribute' => 'name', 
-            'model' => 'App\Models\Country',
+            'attribute' => 'name',
+            'model' => \App\Models\Country::class,
             'options' => (function ($query) {
                 return $query->orderBy('name', 'ASC')->get();
             }),
@@ -68,10 +68,10 @@ class ResidenceCrudController extends CrudController
 
     protected function setupShowOperation()
     {
-      $this->crud->set('show.setFromDb', false);
+        $this->crud->set('show.setFromDb', false);
 
-      CRUD::column('id')->type('text')->label('Id');
-      CRUD::column('residence')->type('text')->label('Plaats');
-      CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model('App\Models\Country');
+        CRUD::column('id')->type('text')->label('Id');
+        CRUD::column('residence')->type('text')->label('Plaats');
+        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model(\App\Models\Country::class);
     }
 }

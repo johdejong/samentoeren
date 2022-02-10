@@ -67,11 +67,11 @@ class Ride extends Model
 
     public function start_location()
     {
-        return $this->belongsTo(\App\Models\Location::class, "start_location_id");
+        return $this->belongsTo(\App\Models\Location::class, 'start_location_id');
     }
-    
+
     public function finish_location()
     {
-        return $this->belongsTo(\App\Models\Location::class, "finish_location_id");
+        return $this->belongsTo(\App\Models\Location::class, 'finish_location_id');
     }
 }

@@ -29,7 +29,6 @@ class Type extends Model
         'id' => 'integer',
     ];
 
-
     public function ride()
     {
         return $this->hasMany(\App\Models\Ride::class);

@@ -29,7 +29,6 @@ class RouteControllerTest extends TestCase
         $response->assertViewHas('routes');
     }
 
-
     /**
      * @test
      */
@@ -40,7 +39,6 @@ class RouteControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('route.create');
     }
-
 
     /**
      * @test
@@ -59,11 +57,11 @@ class RouteControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $name = $this->faker->name;
-        $originalName = $this->faker->word;
+        $name = $this->faker->name();
+        $originalName = $this->faker->word();
         $size = $this->faker->randomNumber();
-        $extension = $this->faker->word;
-        $path = $this->faker->word;
+        $extension = $this->faker->word();
+        $path = $this->faker->word();
         $lastModified = $this->faker->dateTime();
 
         $response = $this->post(route('route.store'), [
@@ -90,7 +88,6 @@ class RouteControllerTest extends TestCase
         $response->assertSessionHas('route.id', $route->id);
     }
 
-
     /**
      * @test
      */
@@ -105,7 +102,6 @@ class RouteControllerTest extends TestCase
         $response->assertViewHas('route');
     }
 
-
     /**
      * @test
      */
@@ -119,7 +115,6 @@ class RouteControllerTest extends TestCase
         $response->assertViewIs('route.edit');
         $response->assertViewHas('route');
     }
-
 
     /**
      * @test
@@ -139,11 +134,11 @@ class RouteControllerTest extends TestCase
     public function update_redirects()
     {
         $route = Route::factory()->create();
-        $name = $this->faker->name;
-        $originalName = $this->faker->word;
+        $name = $this->faker->name();
+        $originalName = $this->faker->word();
         $size = $this->faker->randomNumber();
-        $extension = $this->faker->word;
-        $path = $this->faker->word;
+        $extension = $this->faker->word();
+        $path = $this->faker->word();
         $lastModified = $this->faker->dateTime();
 
         $response = $this->put(route('route.update', $route), [
@@ -167,7 +162,6 @@ class RouteControllerTest extends TestCase
         $this->assertEquals($path, $route->path);
         $this->assertEquals($lastModified, $route->lastModified);
     }
-
 
     /**
      * @test

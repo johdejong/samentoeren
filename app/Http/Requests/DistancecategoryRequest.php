@@ -26,7 +26,7 @@ class DistancecategoryRequest extends FormRequest
     public function rules()
     {
         $id = \Route::current()->parameter('id');
-        $int = (int)$id;
+        $int = (int) $id;
 
         return [
             'distancecategory' => [
@@ -34,7 +34,7 @@ class DistancecategoryRequest extends FormRequest
                 'string',
                 'min:2',
                 'max:64',
-                'unique:distancecategories,distancecategory,'.$int
+                'unique:distancecategories,distancecategory,'.$int,
             ],
         ];
     }
@@ -62,7 +62,7 @@ class DistancecategoryRequest extends FormRequest
             'distancecategory.max' => 'De naam van de afstandscategorie moet uit minimaal 64 tekens bestaan!',
             'distancecategory.min' => 'De naam van de afstandscategorie moet uit maximaal 2 tekens bestaan!',
             'distancecategory.required' => 'Het opgeven van een naam voor de afstandscategorie is verplicht!',
-            'distancecategory.unique' => 'De naam van de afstandscategorie moet uniek zijn!', 
+            'distancecategory.unique' => 'De naam van de afstandscategorie moet uniek zijn!',
         ];
     }
 }

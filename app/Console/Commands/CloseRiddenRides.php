@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-use DB;
 use Carbon\Carbon;
+use DB;
+use Illuminate\Console\Command;
 
 class CloseRiddenRides extends Command
 {

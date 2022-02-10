@@ -16,6 +16,7 @@ class Residence extends Model
     */
 
     protected $table = 'residences';
+
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -41,12 +42,12 @@ class Residence extends Model
 
     public function start_residence()
     {
-        return $this->hasMany(\App\Models\Residence::class, "start_residence_id");
+        return $this->hasMany(self::class, 'start_residence_id');
     }
 
     public function finish_residence()
     {
-        return $this->hasMany(\App\Models\Residence::class, "finish_residence_id");
+        return $this->hasMany(self::class, 'finish_residence_id');
     }
 
     /*

@@ -30,7 +30,6 @@ class RideControllerTest extends TestCase
         $response->assertViewHas('rides');
     }
 
-
     /**
      * @test
      */
@@ -41,7 +40,6 @@ class RideControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('ride.create');
     }
-
 
     /**
      * @test
@@ -60,13 +58,13 @@ class RideControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $name = $this->faker->name;
-        $description = $this->faker->text;
+        $name = $this->faker->name();
+        $description = $this->faker->text();
         $type_id = $this->faker->randomNumber();
         $status_id = $this->faker->randomNumber();
         $start_date = $this->faker->date();
         $start_time = $this->faker->time();
-        $start_place = $this->faker->word;
+        $start_place = $this->faker->word();
         $distance = $this->faker->randomNumber();
 
         $response = $this->post(route('ride.store'), [
@@ -97,7 +95,6 @@ class RideControllerTest extends TestCase
         $response->assertSessionHas('ride.id', $ride->id);
     }
 
-
     /**
      * @test
      */
@@ -112,7 +109,6 @@ class RideControllerTest extends TestCase
         $response->assertViewHas('ride');
     }
 
-
     /**
      * @test
      */
@@ -126,7 +122,6 @@ class RideControllerTest extends TestCase
         $response->assertViewIs('ride.edit');
         $response->assertViewHas('ride');
     }
-
 
     /**
      * @test
@@ -146,13 +141,13 @@ class RideControllerTest extends TestCase
     public function update_redirects()
     {
         $ride = Ride::factory()->create();
-        $name = $this->faker->name;
-        $description = $this->faker->text;
+        $name = $this->faker->name();
+        $description = $this->faker->text();
         $type_id = $this->faker->randomNumber();
         $status_id = $this->faker->randomNumber();
         $start_date = $this->faker->date();
         $start_time = $this->faker->time();
-        $start_place = $this->faker->word;
+        $start_place = $this->faker->word();
         $distance = $this->faker->randomNumber();
 
         $response = $this->put(route('ride.update', $ride), [
@@ -180,7 +175,6 @@ class RideControllerTest extends TestCase
         $this->assertEquals($start_place, $ride->start_place);
         $this->assertEquals($distance, $ride->distance);
     }
-
 
     /**
      * @test

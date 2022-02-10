@@ -42,7 +42,7 @@
                     <x-label>{{ $route->size }} kb</x-label>
                 </div>
                 <div>
-                    <a href="{{ action('App\Http\Controllers\RouteController@download', $route->id) }}" class="btn btn-outline-primary mt-2">Downloaden</a>
+                    <a href="{{ action([\App\Http\Controllers\RouteController::class, 'download'], $route->id) }}" class="btn btn-outline-primary mt-2">Downloaden</a>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
     </div>
 
     <div class="mt-2">
-        <a href="{{ action('App\Http\Controllers\RouteController@index') }}" class="btn btn-outline-primary">Sluiten</a>
+        <a href="{{ action([\App\Http\Controllers\RouteController::class, 'index']) }}" class="btn btn-outline-primary">Sluiten</a>
     </div>
 </x-app-layout>
 

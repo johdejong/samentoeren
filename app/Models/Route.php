@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class Route extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
-    use HasFactory; 
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -17,12 +17,12 @@ class Route extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'description', 
-        'image', 
-        'size', 
+        'name',
+        'description',
+        'image',
+        'size',
         'path',
-        'mimetype', 
+        'mimetype',
         'distancecategory_id',
         'start_residence_id',
         'finish_residence_id',
@@ -50,21 +50,21 @@ class Route extends Model
 
     public function start_residence()
     {
-        return $this->belongsTo(\App\Models\Residence::class, "start_residence_id");
+        return $this->belongsTo(\App\Models\Residence::class, 'start_residence_id');
     }
-    
+
     public function finish_residence()
     {
-        return $this->belongsTo(\App\Models\Residence::class, "finish_residence_id");
+        return $this->belongsTo(\App\Models\Residence::class, 'finish_residence_id');
     }
 
     public function setImageAttribute($value)
     {
-        $curYear = date('Y'); 
+        $curYear = date('Y');
         $curMonth = date('m');
-        $attribute_name = "image";
-        $disk = "gpx";
-        $destination_path = $curMonth . '/' . $curYear;
+        $attribute_name = 'image';
+        $disk = 'gpx';
+        $destination_path = $curMonth.'/'.$curYear;
 
         $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
     }
@@ -72,7 +72,7 @@ class Route extends Model
     public static function boot()
     {
         parent::boot();
-        static::deleting(function($obj) {
+        static::deleting(function ($obj) {
             \Storage::disk('gpx')->delete($obj->image);
         });
     }

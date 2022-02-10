@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RouteStoreRequest;
 use App\Http\Requests\RouteUpdateRequest;
-use App\Models\Route;
 use App\Models\Residence;
+use App\Models\Route;
 use Illuminate\Http\Request;
 
 class RouteController extends Controller
@@ -14,7 +14,7 @@ class RouteController extends Controller
     {
         $keyword = $request->get('search');
 
-        if (!empty($keyword)) {
+        if (! empty($keyword)) {
             $routes = Route::where('name', 'LIKE', "%$keyword%")
                 ->orWhere('distance', '<=', "$keyword")
                 ->orWhere('description', 'LIKE', "%$keyword%")
@@ -30,12 +30,12 @@ class RouteController extends Controller
     public function show(Request $request, Route $route)
     {
         return view('route.show', compact('route'));
-    }    
+    }
 
     public function download(Request $request, Route $route)
     {
         $route = Route::find($route->id);
-        $download = 'storage/' . $route->image;
+        $download = 'storage/'.$route->image;
 
         return response()->download($download);
     }
@@ -43,36 +43,42 @@ class RouteController extends Controller
     public function sortByNameUp(Request $request)
     {
         $routes = Route::orderBy('name', 'asc')->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
     public function sortByNameDown(Request $request)
     {
         $routes = Route::orderBy('name', 'desc')->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
     public function sortByDescriptionUp(Request $request)
     {
         $routes = Route::orderBy('name', 'asc')->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
     public function sortByDescriptionDown(Request $request)
     {
         $routes = Route::orderBy('name', 'desc')->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
     public function sortByDistanceUp(Request $request)
     {
         $routes = Route::orderBy('distance', 'asc')->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
     public function sortByDistanceDown(Request $request)
     {
         $routes = Route::orderBy('distance', 'desc')->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
@@ -82,6 +88,7 @@ class RouteController extends Controller
             ->orderBy(Residence::select('residence')
             ->whereColumn('residences.id', 'routes.start_residence_id'), 'asc')
             ->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
@@ -91,6 +98,7 @@ class RouteController extends Controller
             ->orderBy(Residence::select('residence')
             ->whereColumn('residences.id', 'routes.start_residence_id'), 'desc')
             ->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
@@ -100,6 +108,7 @@ class RouteController extends Controller
             ->orderBy(Residence::select('residence')
             ->whereColumn('residences.id', 'routes.start_residence_id'), 'asc')
             ->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 
@@ -109,6 +118,7 @@ class RouteController extends Controller
             ->orderBy(Residence::select('residence')
             ->whereColumn('residences.id', 'routes.start_residence_id'), 'desc')
             ->paginate(10);
+
         return view('route.index', compact('routes'));
     }
 }

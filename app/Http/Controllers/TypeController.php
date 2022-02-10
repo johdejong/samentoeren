@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\TypeStoreRequest;
 use App\Http\Requests\TypeUpdateRequest;
 use App\Models\Type;
+use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
@@ -17,7 +17,7 @@ class TypeController extends Controller
     {
         $types = Type::all();
 
-        return view('type.index', compact('types')); 
+        return view('type.index', compact('types'));
     }
 
     /**
