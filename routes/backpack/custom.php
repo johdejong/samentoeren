@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\RouteCrudController;
+use Illuminate\Support\Facades\Route;
+
 // --------------------------
 // Custom Backpack Routes
 // --------------------------
@@ -21,6 +24,6 @@ Route::prefix(config('backpack.base.route_prefix', 'admin'))->middleware(array_m
     Route::crud('distancecategory', 'DistancecategoryCrudController');
     Route::crud('residence', 'ResidenceCrudController');
 
-    Route::get('route/{id}/kaart', 'RouteCrudController@kaart');
-    Route::get('route/{id}/download', 'RouteCrudController@download');
+    Route::get('route/{id}/kaart', [RouteCrudController::class, 'kaart']);
+    Route::get('route/{id}/download', [RouteCrudController::class, 'download']);
 }); // this should be the absolute last line of this file

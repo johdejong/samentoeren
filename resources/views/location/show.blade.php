@@ -47,7 +47,7 @@
     </div>
 
     <div class="mt-2">
-        <a href="{{ action('App\Http\Controllers\LocationController@index') }}" class="btn btn-outline-primary">Sluiten</a>
+        <a href="{{ action([\App\Http\Controllers\LocationController::class, 'index']) }}" class="btn btn-outline-primary">Sluiten</a>
     </div>
 </x-app-layout>
 

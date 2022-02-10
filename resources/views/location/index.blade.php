@@ -35,35 +35,35 @@
                         <tr>
                             <th scope="col">
                                 Naam 
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByNameUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByNameDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByNameUp']) }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByNameDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                             <th scope="col" class="hideOnMobile">
                                 Adres 
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByAddressUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByAddressDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByAddressUp']) }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByAddressDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                             <th scope="col" class="hideOnMobile">
                                 Postcode
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByPostalCodeUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByPostalCodeDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByPostalCodeUp']) }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByPostalCodeDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                             <th scope="col">
                                 Plaats
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByResidenceUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByResidenceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByResidenceUp']) }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByResidenceDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                             <th scope="col" class="hideOnMobile">
                                 Land
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByCountryUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\LocationController@sortByCountryDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByCountryUp']) }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action([\App\Http\Controllers\LocationController::class, 'sortByCountryDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($locations as $location)
                             <tr>   
-                                <td><a href="{{ action('App\Http\Controllers\LocationController@show', $location->id) }}">{{ $location->name }}</a></td>
+                                <td><a href="{{ action([\App\Http\Controllers\LocationController::class, 'show'], $location->id) }}">{{ $location->name }}</a></td>
                                 <td class="hideOnMobile">{{ $location->address }}</td>
                                 <td class="hideOnMobile">{{ $location->postal_code }}</td>
                                 <td>{{ $location->residence }}</td>

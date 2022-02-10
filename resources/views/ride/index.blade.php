@@ -36,23 +36,23 @@
                             <th scope="col"></th>
                             <th scope="col">
                                 Naam 
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByNameDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByNameUp']) }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByNameDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                             <th scope="col">
                                 Datum
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByStartDateUp') }}"><i class="las la-sort-up fa-lg"></i></a> 
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByStartDateDown') }}"><i class="las la-sort-down fa-lg"></i></a>   
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByStartDateUp']) }}"><i class="las la-sort-up fa-lg"></i></a> 
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByStartDateDown']) }}"><i class="las la-sort-down fa-lg"></i></a>   
                             </th>
                             <th class="text-end" scope="col">
                                 Afstand                                 
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceUp') }}"><i class="las la-sort-up fa-lg"></i></a>
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByDistanceDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByDistanceUp']) }}"><i class="las la-sort-up fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByDistanceDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                             <th scope="col" class="hideOnMobile">
                                 Inschrijving
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByJoinUp') }}"><i class="las la-sort-up fa-lg"></i></a>
-                                <a href="{{ action('App\Http\Controllers\RideController@sortByJoinDown') }}"><i class="las la-sort-down fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByJoinUp']) }}"><i class="las la-sort-up fa-lg"></i></a>
+                                <a href="{{ action([\App\Http\Controllers\RideController::class, 'sortByJoinDown']) }}"><i class="las la-sort-down fa-lg"></i></a>
                             </th>
                         </tr>
                     </thead>
@@ -64,7 +64,7 @@
                                 @else
                                     <td></td>
                                 @endif                                
-                                <td><a href="{{ action('App\Http\Controllers\RideController@show', $ride->id) }}">{{ $ride->name }}</a></td>
+                                <td><a href="{{ action([\App\Http\Controllers\RideController::class, 'show'], $ride->id) }}">{{ $ride->name }}</a></td>
                                 <td>{{ \Carbon\Carbon::parse($ride->start_date)->formatLocalized('%A %e %B %Y') }}</td>
                                 <td class="text-end">{{ $ride->distance }} km</td>
                                 <td class="hideOnMobile">{{ $ride->status->status }}</td>
