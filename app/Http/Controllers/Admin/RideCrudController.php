@@ -29,8 +29,8 @@ class RideCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name')->type('text')->label('Naam toer');
-        CRUD::column('type_id')->type('select')->label('Type')->attribute('type')->model('App\Models\Type');
-        CRUD::column('status_id')->type('select')->label('Status')->attribute('status')->model('App\Models\Status');
+        CRUD::column('type_id')->type('select')->label('Type')->attribute('type')->model(\App\Models\Type::class);
+        CRUD::column('status_id')->type('select')->label('Status')->attribute('status')->model(\App\Models\Status::class);
         CRUD::column('start_date')->type('date')->label('Vertrekdatum');
         CRUD::column('distance')->type('number')->default('100')->label('Afstand')->suffix(' km');
         $this->crud->query->withCount('users');
@@ -88,7 +88,7 @@ class RideCrudController extends CrudController
             'type' => 'select2',
             'label' => 'Type',
             'attribute' => 'type',
-            'model' => 'App\Models\Type',
+            'model' => \App\Models\Type::class,
             'tab' => 'Algemeen',
             'options' => (function ($query) {
                 return $query->orderBy('type', 'ASC')->get();
@@ -100,7 +100,7 @@ class RideCrudController extends CrudController
             'label' => 'Status',
             'default' => '1',
             'attribute' => 'status',
-            'model' => 'App\Models\Status',
+            'model' => \App\Models\Status::class,
             'tab' => 'Algemeen',
             'options' => (function ($query) {
                 return $query->orderBy('status', 'ASC')->get();
@@ -113,7 +113,7 @@ class RideCrudController extends CrudController
             'type' => 'select2',
             'label' => 'Vertreklocatie',
             'attribute' => 'name',
-            'model' => 'App\Models\Location',
+            'model' => \App\Models\Location::class,
             'entity' => 'start_location',
             'tab' => 'Vertrek',
             'options' => (function ($query) {
@@ -127,7 +127,7 @@ class RideCrudController extends CrudController
             'type' => 'select2',
             'label' => 'Aankomstlocatie',
             'attribute' => 'name',
-            'model' => 'App\Models\Location',
+            'model' => \App\Models\Location::class,
             'entity' => 'finish_location',
             'tab' => 'Aankomst',
             'options' => (function ($query) {
@@ -135,8 +135,8 @@ class RideCrudController extends CrudController
             }),
         ]);
         CRUD::field('distance')->type('number')->default('100')->label('Afstand')->suffix(' km')->tab('Algemeen');
-        CRUD::field('routes')->entity('routes')->type('select2_multiple')->label('Route(s)')->attribute('name')->model('App\Models\Route')->pivot(true)->tab('Algemeen');
-        CRUD::field('users')->entity('users')->type('select2_multiple')->label('Deelnemer(s)')->attribute('name')->model('App\Models\User')->pivot(true)->tab('Algemeen');
+        CRUD::field('routes')->entity('routes')->type('select2_multiple')->label('Route(s)')->attribute('name')->model(\App\Models\Route::class)->pivot(true)->tab('Algemeen');
+        CRUD::field('users')->entity('users')->type('select2_multiple')->label('Deelnemer(s)')->attribute('name')->model(\App\Models\User::class)->pivot(true)->tab('Algemeen');
     }
 
     protected function setupUpdateOperation()
@@ -151,14 +151,14 @@ class RideCrudController extends CrudController
         CRUD::column('id')->label('Id')->type('text');
         CRUD::column('name')->type('text')->label('Naam toer');
         CRUD::column('description')->type('textarea')->label('Omschrijving');
-        CRUD::column('type_id')->type('select')->label('Type')->attribute('type')->model('App\Models\Type');
-        CRUD::column('status_id')->type('select')->label('Status')->attribute('status')->model('App\Models\Status');
+        CRUD::column('type_id')->type('select')->label('Type')->attribute('type')->model(\App\Models\Type::class);
+        CRUD::column('status_id')->type('select')->label('Status')->attribute('status')->model(\App\Models\Status::class);
         CRUD::column('start_date')->type('date')->label('Vertrekdatum');
         CRUD::column('start_time')->type('time')->label('Vertrektijd');
-        CRUD::column('start_location_id')->entity('start_location')->type('select')->label('Vertreklocatie')->attribute('name')->model('App\Models\Location');
+        CRUD::column('start_location_id')->entity('start_location')->type('select')->label('Vertreklocatie')->attribute('name')->model(\App\Models\Location::class);
         CRUD::column('finish_date')->type('date')->label('Aankomstdatum');
         CRUD::column('finish_time')->type('time')->label('Aankomstijd');
-        CRUD::column('finish_location_id')->entity('finish_location')->type('select')->label('Aankomstlocatie')->attribute('name')->model('App\Models\Location');
+        CRUD::column('finish_location_id')->entity('finish_location')->type('select')->label('Aankomstlocatie')->attribute('name')->model(\App\Models\Location::class);
         CRUD::column('distance')->type('number')->default('100')->label('Afstand')->suffix(' km');
         CRUD::column('routes')->entity('routes')->type('select_multiple')->label('Route(s)')->attribute('name');
         CRUD::column('users')->entity('users')->type('select_multiple')->label('Deelnemer(s)')->attribute('name');

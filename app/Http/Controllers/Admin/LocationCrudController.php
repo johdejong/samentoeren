@@ -31,7 +31,7 @@ class LocationCrudController extends CrudController
         CRUD::column('address')->type('text')->label('Adres');
         CRUD::column('postal_code')->type('text')->label('Postcode');
         CRUD::column('residence')->type('text')->label('Plaats');
-        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model('App\Models\Country');
+        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model(\App\Models\Country::class);
 
         // Filters
         // Plaats
@@ -76,7 +76,7 @@ class LocationCrudController extends CrudController
             'label' => 'Land',
             'default' => '1',
             'attribute' => 'name',
-            'model' => 'App\Models\Country',
+            'model' => \App\Models\Country::class,
             'options' => (function ($query) {
                 return $query->orderBy('name', 'ASC')->get();
             }),
@@ -100,6 +100,6 @@ class LocationCrudController extends CrudController
         CRUD::column('residence')->type('text')->label('Plaats');
         CRUD::column('latitude')->type('text')->label('Latitude');
         CRUD::column('longitude')->type('text')->label('Longitude');
-        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model('App\Models\Country');
+        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model(\App\Models\Country::class);
     }
 }

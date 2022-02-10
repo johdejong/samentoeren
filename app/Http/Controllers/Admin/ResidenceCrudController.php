@@ -27,7 +27,7 @@ class ResidenceCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('residence')->type('text')->label('Plaats');
-        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model('App\Models\Country');
+        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model(\App\Models\Country::class);
 
         // Filters
         // Land
@@ -54,7 +54,7 @@ class ResidenceCrudController extends CrudController
             'label' => 'Land',
             'default' => '1',
             'attribute' => 'name',
-            'model' => 'App\Models\Country',
+            'model' => \App\Models\Country::class,
             'options' => (function ($query) {
                 return $query->orderBy('name', 'ASC')->get();
             }),
@@ -72,6 +72,6 @@ class ResidenceCrudController extends CrudController
 
         CRUD::column('id')->type('text')->label('Id');
         CRUD::column('residence')->type('text')->label('Plaats');
-        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model('App\Models\Country');
+        CRUD::column('country_id')->type('select')->label('Land')->attribute('name')->model(\App\Models\Country::class);
     }
 }
