@@ -13,17 +13,17 @@ Route::prefix(config('backpack.base.route_prefix', 'admin'))->middleware(array_m
     'middleware' => array_merge(
         (array) config('backpack.base.web_middleware', 'web'),
         (array) config('backpack.base.middleware_key', 'admin')
-    ),], function () { // custom admin routes
-    Route::crud('type', 'TypeCrudController');
-    Route::crud('status', 'StatusCrudController');
-    Route::crud('ride', 'RideCrudController');
-    Route::crud('country', 'CountryCrudController');
-    Route::crud('location', 'LocationCrudController');
-    Route::crud('user', 'UserCrudController');
-    Route::crud('route', 'RouteCrudController');
-    Route::crud('distancecategory', 'DistancecategoryCrudController');
-    Route::crud('residence', 'ResidenceCrudController');
+    ), ], function () { // custom admin routes
+        Route::crud('type', 'TypeCrudController');
+        Route::crud('status', 'StatusCrudController');
+        Route::crud('ride', 'RideCrudController');
+        Route::crud('country', 'CountryCrudController');
+        Route::crud('location', 'LocationCrudController');
+        Route::crud('user', 'UserCrudController');
+        Route::crud('route', 'RouteCrudController');
+        Route::crud('distancecategory', 'DistancecategoryCrudController');
+        Route::crud('residence', 'ResidenceCrudController');
 
-    Route::get('route/{id}/kaart', [RouteCrudController::class, 'kaart']);
-    Route::get('route/{id}/download', [RouteCrudController::class, 'download']);
-}); // this should be the absolute last line of this file
+        Route::get('route/{id}/kaart', [RouteCrudController::class, 'kaart']);
+        Route::get('route/{id}/download', [RouteCrudController::class, 'download']);
+    }); // this should be the absolute last line of this file

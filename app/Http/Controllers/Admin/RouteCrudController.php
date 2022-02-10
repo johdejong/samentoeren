@@ -45,10 +45,10 @@ class RouteCrudController extends CrudController
             'label' => 'Afstandscategorie',
             'placeholder' => 'Kies een afstandscategorie',
         ], function () {
-                return \App\Models\Distancecategory::all()->pluck('distancecategory', 'id')->toArray();
-            }, function ($value) {
-                $this->crud->addClause('where', 'distancecategory_id', $value);
-            });
+            return \App\Models\Distancecategory::all()->pluck('distancecategory', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'distancecategory_id', $value);
+        });
 
         // Plaats van vertrek
         $this->crud->addFilter([
@@ -57,10 +57,10 @@ class RouteCrudController extends CrudController
             'label' => 'Plaats van vertrek',
             'placeholder' => 'Kies een plaats van vertrek',
         ], function () {
-                return \App\Models\Residence::all()->pluck('residence', 'id')->toArray();
-            }, function ($value) {
-                $this->crud->addClause('where', 'start_residence_id', $value);
-            });
+            return \App\Models\Residence::all()->pluck('residence', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'start_residence_id', $value);
+        });
 
         // Plaats van aankomst
         $this->crud->addFilter([
@@ -69,10 +69,10 @@ class RouteCrudController extends CrudController
             'label' => 'Plaats van aankomst',
             'placeholder' => 'Kies een plaats van aankomst',
         ], function () {
-                return \App\Models\Residence::all()->pluck('residence', 'id')->toArray();
-            }, function ($value) {
-                $this->crud->addClause('where', 'finish_residence_id', $value);
-            });
+            return \App\Models\Residence::all()->pluck('residence', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'finish_residence_id', $value);
+        });
     }
 
     protected function setupCreateOperation()

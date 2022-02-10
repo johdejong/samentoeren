@@ -46,10 +46,10 @@ class RideCrudController extends CrudController
             'label' => 'Status',
             'placeholder' => 'Kies een status',
         ], function () {
-                return \App\Models\Status::all()->pluck('status', 'id')->toArray();
-            }, function ($value) {
-                $this->crud->addClause('where', 'status_id', $value);
-            });
+            return \App\Models\Status::all()->pluck('status', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'status_id', $value);
+        });
 
         // Type
         $this->crud->addFilter([
@@ -58,10 +58,10 @@ class RideCrudController extends CrudController
             'label' => 'Type',
             'placeholder' => 'Kies een type',
         ], function () {
-                return \App\Models\Type::all()->pluck('type', 'id')->toArray();
-            }, function ($value) {
-                $this->crud->addClause('where', 'type_id', $value);
-            });
+            return \App\Models\Type::all()->pluck('type', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'type_id', $value);
+        });
 
         // Datum
         $this->crud->addFilter([

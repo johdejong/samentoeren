@@ -37,10 +37,10 @@ class ResidenceCrudController extends CrudController
             'label' => 'Land',
             'placeholder' => 'Kies een land',
         ], function () {
-                return \App\Models\Country::all()->pluck('name', 'id')->toArray();
-            }, function ($value) {
-                $this->crud->addClause('where', 'country_id', $value);
-            });
+            return \App\Models\Country::all()->pluck('name', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'country_id', $value);
+        });
     }
 
     protected function setupCreateOperation()
