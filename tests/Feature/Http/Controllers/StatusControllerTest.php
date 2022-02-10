@@ -57,7 +57,7 @@ class StatusControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $type = $this->faker->word;
+        $type = $this->faker->word();
 
         $response = $this->post(route('status.store'), [
             'type' => $type,
@@ -119,7 +119,7 @@ class StatusControllerTest extends TestCase
     public function update_redirects()
     {
         $status = Status::factory()->create();
-        $type = $this->faker->word;
+        $type = $this->faker->word();
 
         $response = $this->put(route('status.update', $status), [
             'type' => $type,

@@ -23,8 +23,8 @@ class RideFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'description' => $this->faker->text,
+            'name' => $this->faker->name(),
+            'description' => $this->faker->text(),
             'type_id' => $this->faker->randomNumber(),
             'status_id' => $this->faker->randomNumber(),
             'start_date' => $this->faker->date(),

@@ -58,13 +58,13 @@ class RideControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $name = $this->faker->name;
-        $description = $this->faker->text;
+        $name = $this->faker->name();
+        $description = $this->faker->text();
         $type_id = $this->faker->randomNumber();
         $status_id = $this->faker->randomNumber();
         $start_date = $this->faker->date();
         $start_time = $this->faker->time();
-        $start_place = $this->faker->word;
+        $start_place = $this->faker->word();
         $distance = $this->faker->randomNumber();
 
         $response = $this->post(route('ride.store'), [
@@ -141,13 +141,13 @@ class RideControllerTest extends TestCase
     public function update_redirects()
     {
         $ride = Ride::factory()->create();
-        $name = $this->faker->name;
-        $description = $this->faker->text;
+        $name = $this->faker->name();
+        $description = $this->faker->text();
         $type_id = $this->faker->randomNumber();
         $status_id = $this->faker->randomNumber();
         $start_date = $this->faker->date();
         $start_time = $this->faker->time();
-        $start_place = $this->faker->word;
+        $start_place = $this->faker->word();
         $distance = $this->faker->randomNumber();
 
         $response = $this->put(route('ride.update', $ride), [

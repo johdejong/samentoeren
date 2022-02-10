@@ -57,7 +57,7 @@ class TypeControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $type = $this->faker->word;
+        $type = $this->faker->word();
 
         $response = $this->post(route('type.store'), [
             'type' => $type,
@@ -119,7 +119,7 @@ class TypeControllerTest extends TestCase
     public function update_redirects()
     {
         $type = Type::factory()->create();
-        $type = $this->faker->word;
+        $type = $this->faker->word();
 
         $response = $this->put(route('type.update', $type), [
             'type' => $type,

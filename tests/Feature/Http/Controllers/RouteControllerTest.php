@@ -57,11 +57,11 @@ class RouteControllerTest extends TestCase
      */
     public function store_saves_and_redirects()
     {
-        $name = $this->faker->name;
-        $originalName = $this->faker->word;
+        $name = $this->faker->name();
+        $originalName = $this->faker->word();
         $size = $this->faker->randomNumber();
-        $extension = $this->faker->word;
-        $path = $this->faker->word;
+        $extension = $this->faker->word();
+        $path = $this->faker->word();
         $lastModified = $this->faker->dateTime();
 
         $response = $this->post(route('route.store'), [
@@ -134,11 +134,11 @@ class RouteControllerTest extends TestCase
     public function update_redirects()
     {
         $route = Route::factory()->create();
-        $name = $this->faker->name;
-        $originalName = $this->faker->word;
+        $name = $this->faker->name();
+        $originalName = $this->faker->word();
         $size = $this->faker->randomNumber();
-        $extension = $this->faker->word;
-        $path = $this->faker->word;
+        $extension = $this->faker->word();
+        $path = $this->faker->word();
         $lastModified = $this->faker->dateTime();
 
         $response = $this->put(route('route.update', $route), [

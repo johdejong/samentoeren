@@ -23,7 +23,7 @@ class RouteFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->name(),
             'originalName' => $this->faker->regexify('[A-Za-z0-9]{255}'),
             'size' => $this->faker->randomNumber(),
             'extension' => $this->faker->regexify('[A-Za-z0-9]{8}'),
