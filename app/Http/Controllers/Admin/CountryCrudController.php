@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CountryRequest;
+use App\Models\Country;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use App\Models\Country;
 
 class CountryCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation; 
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     public function setup()
     {
         CRUD::setModel(\App\Models\Country::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/country');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/country');
         CRUD::setEntityNameStrings('land', 'Landen');
 
         $this->crud->orderBy('name', 'ASC');
@@ -51,5 +51,5 @@ class CountryCrudController extends CrudController
         CRUD::column('id')->label('Id')->type('text');
         CRUD::column('code')->label('Landcode')->type('text');
         CRUD::column('name')->label('Land')->type('text');
-    }    
+    }
 }

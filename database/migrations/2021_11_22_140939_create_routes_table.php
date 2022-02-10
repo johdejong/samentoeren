@@ -19,7 +19,7 @@ class CreateRoutesTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('distance')->nullable();
             $table->unsignedBigInteger('start_residence_id')->nullable();
-            $table->unsignedBigInteger('finish_residence_id')->nullable();            
+            $table->unsignedBigInteger('finish_residence_id')->nullable();
             $table->foreignId('distancecategory_id')
                 ->constrained()
                 ->onUpdate('cascade')

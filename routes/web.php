@@ -69,4 +69,3 @@ Route::middleware('auth')->group(function () {
     Route::get('ride/sortByStartDateUp', [\App\Http\Controllers\RideController::class, 'sortByStartDateUp'])->name('ride.frontend.sortByStartDateUp');
     Route::get('ride/sortByStartDateDown', [\App\Http\Controllers\RideController::class, 'sortByStartDateDown'])->name('ride.frontend.sortByStartDateDown');
 });
-

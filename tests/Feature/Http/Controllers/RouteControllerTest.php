@@ -29,7 +29,6 @@ class RouteControllerTest extends TestCase
         $response->assertViewHas('routes');
     }
 
-
     /**
      * @test
      */
@@ -40,7 +39,6 @@ class RouteControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('route.create');
     }
-
 
     /**
      * @test
@@ -90,7 +88,6 @@ class RouteControllerTest extends TestCase
         $response->assertSessionHas('route.id', $route->id);
     }
 
-
     /**
      * @test
      */
@@ -105,7 +102,6 @@ class RouteControllerTest extends TestCase
         $response->assertViewHas('route');
     }
 
-
     /**
      * @test
      */
@@ -119,7 +115,6 @@ class RouteControllerTest extends TestCase
         $response->assertViewIs('route.edit');
         $response->assertViewHas('route');
     }
-
 
     /**
      * @test
@@ -167,7 +162,6 @@ class RouteControllerTest extends TestCase
         $this->assertEquals($path, $route->path);
         $this->assertEquals($lastModified, $route->lastModified);
     }
-
 
     /**
      * @test

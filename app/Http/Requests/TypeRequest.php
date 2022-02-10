@@ -26,7 +26,7 @@ class TypeRequest extends FormRequest
     public function rules()
     {
         $id = \Route::current()->parameter('id');
-        $int = (int)$id;
+        $int = (int) $id;
 
         return [
             'type' => [
@@ -34,7 +34,7 @@ class TypeRequest extends FormRequest
                 'string',
                 'min:2',
                 'max:128',
-                'unique:types,type,'.$int
+                'unique:types,type,'.$int,
             ],
         ];
     }
@@ -62,7 +62,7 @@ class TypeRequest extends FormRequest
             'type.max' => 'Het toertype moet uit maximaal 128 tekens bestaan!',
             'type.min' => 'Het toertype moet uit 2 tekens bestaan!',
             'type.required' => 'Het opgeven van het toertype is verplicht!',
-            'type.unique' => 'Het toertype moet uniek zijn. Er is al een toertype met deze naam!', 
+            'type.unique' => 'Het toertype moet uniek zijn. Er is al een toertype met deze naam!',
         ];
     }
 }

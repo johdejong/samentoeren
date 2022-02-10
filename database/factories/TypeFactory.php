@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Type;
 
 class TypeFactory extends Factory
 {

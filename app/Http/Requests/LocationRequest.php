@@ -28,7 +28,7 @@ class LocationRequest extends FormRequest
     public function rules()
     {
         $id = \Route::current()->parameter('id');
-        $int = (int)$id;
+        $int = (int) $id;
 
         return [
             'name' => [
@@ -36,14 +36,14 @@ class LocationRequest extends FormRequest
                 'string',
                 'min:5',
                 'max:255',
-                'unique:locations,name,'.$int
+                'unique:locations,name,'.$int,
             ],
             'residence' => [
                 'required',
                 'string',
                 'min:2',
-                'max:255'
-            ] 
+                'max:255',
+            ],
         ];
     }
 
@@ -70,7 +70,7 @@ class LocationRequest extends FormRequest
             'name.max' => 'De naam van de locatie mag uit maximaal 255 tekens bestaan!',
             'name.min' => 'De naam van de locatie moet uit minimaal 5 tekens bestaan!',
             'name.required' => 'Het opgeven van een naam voor de locatie is verplicht!',
-            'name.unique' => 'De naam van een locatie moet uniek zijn. Er is al een locatie met deze naam!', 
+            'name.unique' => 'De naam van een locatie moet uniek zijn. Er is al een locatie met deze naam!',
 
             'residence.max' => 'De plaats van de locatie mag uit maximaal 255 tekens bestaan!',
             'residence.min' => 'De plaats van de locatie moet uit minimaal 2 tekens bestaan!',

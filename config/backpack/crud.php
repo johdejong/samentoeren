@@ -251,7 +251,7 @@ return [
         // "da_DK" => "Danish (Denmark)",
         // "da" => "Danish",
         // "nl_BE" => "Dutch (Belgium)",
-        "nl_NL" => "Dutch (Netherlands)",
+        'nl_NL' => 'Dutch (Netherlands)',
         // "nl" => "Dutch",
         // "ebu_KE" => "Embu (Kenya)",
         // "ebu" => "Embu",

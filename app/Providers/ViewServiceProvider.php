@@ -2,13 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\ServiceProvider;
-use App\Models\User; 
 use App\Models\Location;
 use App\Models\Ride;
 use App\Models\Route;
+use App\Models\User;
 use DB;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class ViewServiceProvider extends ServiceProvider
 {

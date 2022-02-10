@@ -26,7 +26,7 @@ class RouteRequest extends FormRequest
     public function rules()
     {
         $id = \Route::current()->parameter('id');
-        $int = (int)$id;
+        $int = (int) $id;
 
         return [
             'name' => [
@@ -34,7 +34,7 @@ class RouteRequest extends FormRequest
                 'string',
                 'min:2',
                 'max:128',
-                'unique:routes,name,'.$int
+                'unique:routes,name,'.$int,
             ],
             'image' => [
                 'required',
@@ -67,7 +67,7 @@ class RouteRequest extends FormRequest
             'name.max' => 'De naam van een route moet uit 128 tekens bestaan!',
             'name.min' => 'De naam van een route moet uit 2 tekens bestaan!',
             'name.required' => 'Het opgeven van een naam voor de route is verplicht!',
-            'name.unique' => 'De naam van een route moet uniek zijn. Er is al een route met deze naam!', 
+            'name.unique' => 'De naam van een route moet uniek zijn. Er is al een route met deze naam!',
 
             'image.file' => 'Het veld onder validatie moet een succesvol geüpload bestand zijn!',
             'image.mimetypes' => 'Het bestand moet van het type text/xml zijn!.',

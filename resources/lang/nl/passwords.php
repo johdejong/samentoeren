@@ -17,6 +17,6 @@ return [
     'sent' => 'We hebben u een e-mail gestuurd met daarin een link waarmee u een nieuw wachtwoord kunt instellen!',
     'throttled' => 'Wacht even voordat u het opnieuw probeert.',
     'token' => 'Het wachtwoord reset token is ongeldig.',
-    'user' => "We kunnen geen gebruiker met dit e-mailadres vinden.",
+    'user' => 'We kunnen geen gebruiker met dit e-mailadres vinden.',
 
 ];

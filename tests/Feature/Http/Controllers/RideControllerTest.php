@@ -30,7 +30,6 @@ class RideControllerTest extends TestCase
         $response->assertViewHas('rides');
     }
 
-
     /**
      * @test
      */
@@ -41,7 +40,6 @@ class RideControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('ride.create');
     }
-
 
     /**
      * @test
@@ -97,7 +95,6 @@ class RideControllerTest extends TestCase
         $response->assertSessionHas('ride.id', $ride->id);
     }
 
-
     /**
      * @test
      */
@@ -112,7 +109,6 @@ class RideControllerTest extends TestCase
         $response->assertViewHas('ride');
     }
 
-
     /**
      * @test
      */
@@ -126,7 +122,6 @@ class RideControllerTest extends TestCase
         $response->assertViewIs('ride.edit');
         $response->assertViewHas('ride');
     }
-
 
     /**
      * @test
@@ -180,7 +175,6 @@ class RideControllerTest extends TestCase
         $this->assertEquals($start_place, $ride->start_place);
         $this->assertEquals($distance, $ride->distance);
     }
-
 
     /**
      * @test

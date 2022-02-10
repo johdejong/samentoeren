@@ -26,15 +26,15 @@ class StatusRequest extends FormRequest
     public function rules()
     {
         $id = \Route::current()->parameter('id');
-        $int = (int)$id;
+        $int = (int) $id;
 
         return [
             'status' => [
                 'required',
-                'string', 
+                'string',
                 'min:2',
                 'max:128',
-                'unique:statuses,status,'.$int
+                'unique:statuses,status,'.$int,
             ],
         ];
     }
@@ -62,7 +62,7 @@ class StatusRequest extends FormRequest
             'status.max' => 'De toerstatus moet uit maximaal 128 tekens bestaan!',
             'status.min' => 'De toerstatus moet uit 2 tekens bestaan!',
             'status.required' => 'Het opgeven van een toerstatus is verplicht!',
-            'status.unique' => 'De toerstatus moet uniek zijn. Er is al een toerstatus met deze naam!', 
+            'status.unique' => 'De toerstatus moet uniek zijn. Er is al een toerstatus met deze naam!',
         ];
     }
 }

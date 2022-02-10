@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Route;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Route;
 
 class RouteFactory extends Factory
 {

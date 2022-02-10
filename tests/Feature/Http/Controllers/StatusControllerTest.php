@@ -29,7 +29,6 @@ class StatusControllerTest extends TestCase
         $response->assertViewHas('statuses');
     }
 
-
     /**
      * @test
      */
@@ -40,7 +39,6 @@ class StatusControllerTest extends TestCase
         $response->assertOk();
         $response->assertViewIs('status.create');
     }
-
 
     /**
      * @test
@@ -75,7 +73,6 @@ class StatusControllerTest extends TestCase
         $response->assertSessionHas('status.id', $status->id);
     }
 
-
     /**
      * @test
      */
@@ -90,7 +87,6 @@ class StatusControllerTest extends TestCase
         $response->assertViewHas('status');
     }
 
-
     /**
      * @test
      */
@@ -104,7 +100,6 @@ class StatusControllerTest extends TestCase
         $response->assertViewIs('status.edit');
         $response->assertViewHas('status');
     }
-
 
     /**
      * @test
@@ -137,7 +132,6 @@ class StatusControllerTest extends TestCase
 
         $this->assertEquals($type, $status->type);
     }
-
 
     /**
      * @test

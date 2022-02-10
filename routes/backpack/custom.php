@@ -26,5 +26,4 @@ Route::group([
 
     Route::get('route/{id}/kaart', 'RouteCrudController@kaart');
     Route::get('route/{id}/download', 'RouteCrudController@download');
-
 }); // this should be the absolute last line of this file

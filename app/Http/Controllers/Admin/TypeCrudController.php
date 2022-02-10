@@ -17,7 +17,7 @@ class TypeCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Type::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/type');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/type');
         CRUD::setEntityNameStrings('toertype', 'Toertypes');
 
         $this->crud->orderBy('type', 'ASC');

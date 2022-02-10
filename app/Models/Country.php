@@ -19,8 +19,8 @@ class Country extends Model
     */
 
     protected $table = 'countries';
-    protected $guarded = ['id'];
 
+    protected $guarded = ['id'];
 
     /*
     |--------------------------------------------------------------------------

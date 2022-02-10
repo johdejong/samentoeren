@@ -113,7 +113,7 @@ return [
              * The disk names on which the backups will be stored.
              */
             'disks' => [
-                'backups', 
+                'backups',
                 'google',
             ],
         ],
@@ -140,7 +140,7 @@ return [
             \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class     => ['mail'],
             \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class   => ['mail'],
             \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class    => ['mail'],
-        ], 
+        ],
 
         /*
          * Here you can specify the notifiable to which the notifications should be sent. The default
@@ -195,11 +195,11 @@ return [
         /*
          * The strategy that will be used to cleanup old backups. The default strategy
          * will keep
-         * 
+         *
          * 'disks' => [
             'google',
             'local',
-        ], 
+        ],
          *
          * all backups for a certain amount of days. After that period only
          * a daily backup will be kept. After that period only weekly backups will
@@ -214,10 +214,10 @@ return [
 
             'disks' => [
                 'backups',
-                'google', 
-                ],
+                'google',
+            ],
 
-             /*   
+            /*
              * The number of days for which backups must be kept.
              */
             'keep_all_backups_for_days' => 7,

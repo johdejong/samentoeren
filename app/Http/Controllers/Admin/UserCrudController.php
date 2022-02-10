@@ -18,7 +18,7 @@ class UserCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\User::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
+        CRUD::setRoute(config('backpack.base.route_prefix').'/user');
         CRUD::setEntityNameStrings('gebruiker', 'Gebruikers');
 
         $this->crud->orderBy('name', 'ASC');
@@ -37,23 +37,23 @@ class UserCrudController extends CrudController
         $this->crud->addFilter([
             'type'  => 'simple',
             'name'  => 'admin',
-            'label' => 'Beheerder'
-        ], 
-        false, 
-        function() {
+            'label' => 'Beheerder',
+        ],
+        false,
+        function () {
             $this->crud->addClause('where', 'admin', '1');
         });
 
         // Actief
         $this->crud->addFilter([
-                'type'  => 'simple',
-                'name'  => 'active',
-                'label' => 'Actief'
-            ], 
-            false, 
-            function() {
+            'type'  => 'simple',
+            'name'  => 'active',
+            'label' => 'Actief',
+        ],
+            false,
+            function () {
                 $this->crud->addClause('where', 'active', '1');
-        });
+            });
     }
 
     protected function setupCreateOperation()
@@ -73,12 +73,12 @@ class UserCrudController extends CrudController
 
     protected function setupShowOperation()
     {
-      $this->crud->set('show.setFromDb', false);
+        $this->crud->set('show.setFromDb', false);
 
-      CRUD::column('id')->label('Id')->type('text');
-      CRUD::column('name')->label('Naam')->type('text');
-      CRUD::column('email')->label('E-mailadres')->type('email');
-      CRUD::column('admin')->label('Beheerder')->type('boolean');
-      CRUD::column('active')->label('Actief')->type('boolean');
+        CRUD::column('id')->label('Id')->type('text');
+        CRUD::column('name')->label('Naam')->type('text');
+        CRUD::column('email')->label('E-mailadres')->type('email');
+        CRUD::column('admin')->label('Beheerder')->type('boolean');
+        CRUD::column('active')->label('Actief')->type('boolean');
     }
 }

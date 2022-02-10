@@ -18,6 +18,7 @@ class Distancecategory extends Model
     */
 
     protected $table = 'distancecategories';
+
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
